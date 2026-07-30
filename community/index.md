@@ -23,7 +23,8 @@ Benutzerdefinierte Felder, Formulare, Portfolios, Dashboards, Automatisierungsre
 
 ## Empfohlener Einstieg
 
-1. [Community installieren](./installation.md)
+1. Community [mit Docker installieren](./installation.md) oder
+   [direkt als Linux-Dienst betreiben](./linux-direkt.md)
 2. [Erste Schritte](../erste-schritte.md)
 3. [Listen und Navigation](../listen-und-navigation.md)
 4. [Aufgaben bearbeiten](../aufgaben.md)

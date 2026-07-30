@@ -16,7 +16,8 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Benachrichtigungen', link: '/benachrichtigungen' },
     { text: 'Export und Papierkorb', link: '/import-export-papierkorb' },
     { text: 'Konto und Administration', link: '/konto-administration' },
-    { text: 'Community mit Docker installieren', link: '/community/installation' }
+    { text: 'Community mit Docker installieren', link: '/community/installation' },
+    { text: 'Community direkt auf Linux', link: '/community/linux-direkt' }
   ]},
   { text: 'Enterprise Edition', items: [
     { text: 'Enterprise-Überblick', link: '/enterprise/' },
@@ -115,6 +116,10 @@ export default defineConfig({
         outline: { level: [2, 3], label: 'Auf dieser Seite' },
         docFooter: { prev: 'Vorherige Seite', next: 'Nächste Seite' },
         lastUpdated: { text: 'Zuletzt aktualisiert', formatOptions: { dateStyle: 'medium', timeStyle: 'short' } },
+        footer: {
+          message: '<a href="https://sessage.com/de/impressum/">Impressum</a> · <a href="https://sessage.com/de/datenschutz/">Datenschutzerklärung</a>',
+          copyright: 'Sessage'
+        },
         search: { provider: 'local' }
       }
     },
@@ -141,6 +146,10 @@ export default defineConfig({
         outline: { level: [2, 3], label: 'On this page' },
         docFooter: { prev: 'Previous page', next: 'Next page' },
         lastUpdated: { text: 'Last updated', formatOptions: { dateStyle: 'medium', timeStyle: 'short' } },
+        footer: {
+          message: '<a href="https://sessage.com/de/impressum/">Legal notice</a> · <a href="https://sessage.com/de/datenschutz/">Privacy policy</a>',
+          copyright: 'Sessage'
+        },
         search: { provider: 'local' }
       }
     }
