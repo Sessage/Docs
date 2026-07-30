@@ -1,0 +1,31 @@
+.sessage-youtube-figure { margin: 28px 0; }
+.sessage-youtube-embed { overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--vp-c-divider); border-radius: 16px; background: linear-gradient(145deg, #071a36, #123c73 58%, #246bfd); box-shadow: 0 18px 48px rgb(7 26 54 / 18%); color: #fff; }
+.sessage-youtube-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
+.sessage-youtube-placeholder { display: flex; height: 100%; padding: clamp(20px, 5vw, 48px); flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at 22% 20%, rgb(91 141 239 / 35%), transparent 30%); }
+.sessage-youtube-placeholder strong { font-size: clamp(19px, 3vw, 28px); line-height: 1.2; }
+.sessage-youtube-placeholder p { max-width: 590px; margin: 10px auto 18px; color: #dce8fb; }
+.sessage-youtube-placeholder a { margin-top: 12px; color: #dce8fb; font-size: 14px; }
+.sessage-youtube-play { display: grid; width: 62px; height: 44px; margin-bottom: 18px; place-items: center; border-radius: 13px; background: #ff0033; box-shadow: 0 12px 28px rgb(0 0 0 / 24%); }
+.sessage-youtube-play::after { content: ""; width: 0; height: 0; margin-left: 4px; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 15px solid #fff; }
+.sessage-youtube-figure figcaption { margin-top: 9px; color: var(--vp-c-text-2); font-size: 14px; text-align: center; }
+.sessage-consent-banner { position: fixed; z-index: 100; right: 22px; bottom: 22px; left: 22px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; width: min(980px, calc(100% - 44px)); margin: 0 auto; padding: 22px; border: 1px solid var(--vp-c-divider); border-radius: 16px; background: var(--vp-c-bg); color: var(--vp-c-text-1); box-shadow: 0 24px 80px rgb(7 26 54 / 28%); }
+.sessage-consent-banner strong { display: block; margin-bottom: 5px; font-size: 18px; }
+.sessage-consent-banner p { margin: 0; color: var(--vp-c-text-2); }
+.sessage-consent-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.sessage-consent-button { min-height: 42px; padding: 9px 15px; border: 1px solid var(--vp-c-divider); border-radius: 9px; background: var(--vp-c-bg); color: var(--vp-c-text-1); font: inherit; font-weight: 700; cursor: pointer; }
+.sessage-consent-button.primary { border-color: var(--vp-c-brand-1); background: var(--vp-c-brand-1); color: #fff; }
+.sessage-consent-backdrop { position: fixed; z-index: 110; inset: 0; display: grid; place-items: center; padding: 16px; background: rgb(7 26 54 / 62%); backdrop-filter: blur(3px); }
+.sessage-consent-dialog { position: relative; width: min(610px, 100%); padding: 28px; border-radius: 18px; background: var(--vp-c-bg); color: var(--vp-c-text-1); box-shadow: 0 28px 100px rgb(7 26 54 / 34%); }
+.sessage-consent-dialog small { color: var(--vp-c-brand-1); font-weight: 800; letter-spacing: .08em; }
+.sessage-consent-dialog h2 { margin: 4px 0 14px; border: 0; }
+.sessage-consent-close { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border: 1px solid var(--vp-c-divider); border-radius: 999px; background: var(--vp-c-bg); color: var(--vp-c-text-1); font-size: 24px; cursor: pointer; }
+.sessage-consent-status { padding: 10px 12px; border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-brand-1); font-weight: 700; }
+.sessage-privacy-links { display: flex; gap: 16px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--vp-c-divider); font-size: 13px; }
+.sessage-privacy-links button { padding: 0; border: 0; background: transparent; color: var(--vp-c-brand-1); cursor: pointer; }
+@media (max-width: 640px) {
+  .sessage-consent-banner { right: 12px; bottom: 12px; left: 12px; grid-template-columns: 1fr; width: auto; padding: 18px; }
+  .sessage-consent-actions, .sessage-consent-actions .sessage-consent-button { width: 100%; }
+  .sessage-consent-actions .sessage-consent-button { flex: 1; }
+  .sessage-youtube-placeholder { padding: 16px; }
+  .sessage-youtube-placeholder p { margin-bottom: 12px; font-size: 14px; }
+}
