@@ -90,6 +90,8 @@ const languagePreferenceScript = `
 export default defineConfig({
   title: 'Sessage',
   description: 'Documentation for Sessage Community and Enterprise',
+  // Die produktive Dokumentation wird unter der eigenen Domain im Wurzelpfad ausgeliefert.
+  base: '/',
   cleanUrls: true,
   lastUpdated: true,
   head: [['script', {}, languagePreferenceScript]],

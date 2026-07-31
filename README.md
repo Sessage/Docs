@@ -32,6 +32,16 @@ npm run docs:preview
 
 Im eigenständigen Docs-Repository heißen die entsprechenden Befehle `npm run build` und `npm run preview`.
 
+## Automatische Veröffentlichung
+
+Die produktive Nutzerdokumentation ist unter `https://docs.sessage.com` erreichbar. Der Ordner `docs/` im zentralen Monorepo ist die einzige Quelle:
+
+1. Eine freigegebene Änderung auf `main` wird geprüft und in das öffentliche Repository `Sessage/Docs` gespiegelt.
+2. Ein Workflow in `Sessage/Docs` installiert die gesperrten npm-Abhängigkeiten, baut VitePress und lädt `.vitepress/dist` als GitHub-Pages-Artefakt hoch.
+3. GitHub Pages veröffentlicht das Artefakt unter der konfigurierten eigenen Domain.
+
+Direkte Änderungen in `Sessage/Docs` sind nicht dauerhaft und können beim nächsten Spiegelungslauf überschrieben werden. Die interne Administrationsdokumentation aus `admindocs/` ist nicht Bestandteil des öffentlichen Repositorys und wird nicht auf dieser Pages-Site veröffentlicht.
+
 ## Screenshots pflegen
 
 Im Monorepo liegen Screenshots getrennt nach Edition unter `docs/public/images/`; im eigenständigen Docs-Repository beginnt derselbe Pfad direkt mit `public/images/`:
