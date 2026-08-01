@@ -33,5 +33,4 @@ Der Enterprise-Host enthält nur die Produktkomposition. Fachliche Erweiterungen
 - [Automatisierung und Webhooks](../automatisierung.md)
 - [E-Mail-Import](./email-import.md)
 - [AD-Verzeichnisfreigaben](./verzeichnisfreigaben.md)
-- [Administration und Lizenzierung](./administration-lizenzierung.md)
 - [Enterprise installieren und lizenzieren](./installation.md)

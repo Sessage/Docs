@@ -26,16 +26,12 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Automatisierung und Webhooks', link: '/automatisierung' },
     { text: 'E-Mail-Import', link: '/enterprise/email-import' },
     { text: 'AD-Verzeichnisfreigaben', link: '/enterprise/verzeichnisfreigaben' },
-    { text: 'Administration und Lizenzierung', link: '/enterprise/administration-lizenzierung' },
     { text: 'Enterprise mit Docker installieren', link: '/enterprise/installation' }
   ]},
   { text: 'Editionen und Clients', items: [
     { text: 'Installationsauswahl', link: '/installation' },
     { text: 'Docker-Konfiguration', link: '/docker-konfiguration' },
     { text: 'API und mobile App', link: '/api-mobile' }
-  ]},
-  { text: 'Entwicklung', items: [
-    { text: 'Quellcode und Architektur', link: '/entwicklerhandbuch' }
   ]}
 ]
 
