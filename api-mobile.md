@@ -34,6 +34,10 @@ Die mobile App ist für beide Editionen identisch. Nach der Anmeldung lädt sie 
 
 Enterprise ergänzt mobile Endpunkte und Oberflächen insbesondere für Portfolios, Dashboards, Formulare einschließlich benutzerdefinierter Felder, Automatisierung, E-Mail-Import und Verzeichnisfreigaben. Zugriffe auf benutzerdefinierte Felder benötigen serverseitig `enterprise.forms`; die App blendet die zugehörigen Bereiche ohne diese Capability aus.
 
+Administratoren erhalten bei aktiver Capability `enterprise.central-administration` zusätzlich zentrale, dauerhaft gespeicherte Richtlinien für Selbstregistrierung, Export persönlicher Daten und Selbstlöschung von Konten. Das zugehörige Audit-Protokoll erfasst Richtlinienänderungen, Benutzerverwaltung sowie Datenschutzexporte und Kontolöschungen. Beide Bereiche sind in der mobilen Administration verfügbar und serverseitig durch die Admin-Richtlinie geschützt.
+
+Der mobile Login kann einen Passwort-Reset-Link anfordern, ohne offenzulegen, ob ein Konto existiert. Angemeldete Benutzer können ihre persönlichen Kontodaten in der App als JSON exportieren oder ihr Konto nach erneuter Passwortbestätigung dauerhaft löschen, sofern die zentralen Richtlinien dies erlauben.
+
 Push verwendet die Capability `enterprise.push-notifications`. Geräte registrieren sich ausschließlich am verbundenen Enterprise-Server; dieser pseudonymisiert Benutzer- und Installationskennung, bevor er das zentrale Relay anspricht. Eine stabile Kennung pro App-Installation und Serverprofil verhindert, dass sich mehrere Konten auf demselben Server oder mehrere Geräte gegenseitig überschreiben. Token-Erneuerungen werden automatisch nachregistriert. Push-Öffnungsziele werden auf interne Listen-/Aufgabenrouten begrenzt und wechseln nur in ein lokal bekanntes, authentifizierbares Serverprofil.
 
 Einladungs-QR-Codes für Listen und Portfolios können direkt in der App gescannt und angenommen werden. Das Annehmen wird stets vom Server gegen den angemeldeten Benutzer und den Einladungstoken geprüft; Enterprise-Funktionen bleiben zusätzlich an die gemeldete Capability gebunden.
