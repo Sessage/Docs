@@ -122,7 +122,6 @@ export default defineConfig({
           message: '<a href="https://sessage.com/de/impressum/">Impressum</a> · <a href="https://sessage.com/de/datenschutz/">Datenschutzerklärung</a>',
           copyright: 'Sessage'
         },
-        search: { provider: 'local' }
       }
     },
     en: {
@@ -152,9 +151,41 @@ export default defineConfig({
           message: '<a href="https://sessage.com/de/impressum/">Legal notice</a> · <a href="https://sessage.com/de/datenschutz/">Privacy policy</a>',
           copyright: 'Sessage'
         },
-        search: { provider: 'local' }
       }
     }
   },
-  themeConfig: { siteTitle: 'Sessage', i18nRouting: false }
+  themeConfig: {
+    siteTitle: 'Sessage',
+    i18nRouting: false,
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: 'Dokumentation durchsuchen',
+                buttonAriaLabel: 'Dokumentation durchsuchen'
+              },
+              modal: {
+                displayDetails: 'Detaillierte Treffer anzeigen',
+                resetButtonTitle: 'Suche zurücksetzen',
+                backButtonTitle: 'Suche schließen',
+                noResultsText: 'Keine Ergebnisse gefunden für',
+                footer: {
+                  selectText: 'Auswählen',
+                  selectKeyAriaLabel: 'Eingabetaste',
+                  navigateText: 'Navigieren',
+                  navigateUpKeyAriaLabel: 'Pfeil nach oben',
+                  navigateDownKeyAriaLabel: 'Pfeil nach unten',
+                  closeText: 'Schließen',
+                  closeKeyAriaLabel: 'Escape-Taste'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 })
