@@ -12,5 +12,11 @@
   },
   "dependencies": {
     "swagger-ui-dist": "^5.32.12"
+  },
+  "overrides": {
+    "vite": "6.4.3",
+    "esbuild": "0.25.12",
+    "postcss": "8.5.26",
+    "nanoid": "3.3.18"
   }
 }
