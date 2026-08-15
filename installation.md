@@ -7,7 +7,7 @@ Sessage besitzt zwei Serverprodukte mit demselben Community-Kern. Verwenden Sie 
 
 ## Gemeinsame Voraussetzungen
 
-- Docker Compose 2.20 oder neuer für die empfohlenen Installationspakete
+- Docker Compose 2.20 oder neuer für die Docker-Pakete; Enterprise kann alternativ als Windows-Dienst oder systemd-Dienst installiert werden
 - PostgreSQL 18 im mitgelieferten Container oder ein erreichbarer externer PostgreSQL-Server
 - ein freier Host-Port; `8080` ist nur der vollständig änderbare Standard
 - sichere Produktions-Secrets
@@ -15,12 +15,14 @@ Sessage besitzt zwei Serverprodukte mit demselben Community-Kern. Verwenden Sie 
 
 ## Empfohlene Docker-Pakete
 
-| Edition | Paketordner | Anwendung |
+| Edition/Variante | Kundenpaket | Anwendung |
 |---|---|---|
-| Community | `docker/community` | `TodoSuite.Community.dll` |
-| Enterprise | `docker/enterprise` | `TodoSuite.Enterprise.Server.dll` |
+| Community mit Docker | `sessage-community-<version>.zip` | `TodoSuite.Community.dll` |
+| Enterprise mit Docker | `sessage-enterprise-docker-<version>.zip` | `TodoSuite.Enterprise.Server.dll` |
+| Enterprise direkt auf Windows | `sessage-enterprise-windows-x64-<version>.zip` | selbstenthaltene EXE als Windows-Dienst |
+| Enterprise direkt auf Linux | `sessage-enterprise-linux-x64-<version>.zip` | selbstenthaltene Anwendung als systemd-Dienst |
 
-Jeder Ordner enthält Dockerfile, Compose-Datei, `.env.example`, Update-Skripte und persistente Speicherpfade. Die Anwendung wird aus den bereits veröffentlichten Dateien unter `publish/` gebaut.
+Die Docker-Pakete enthalten Dockerfile, Compose-Datei, Konfiguration, geführte Skripte und persistente Speicherpfade. Die direkten Enterprise-Pakete enthalten stattdessen einen plattformspezifischen Installer, Lizenzinstaller und Updater. Auf einem Kundenserver werden weder Quellcode noch .NET SDK benötigt.
 
 Mit `DATABASE_MODE=internal` startet das Paket PostgreSQL selbst. Mit `DATABASE_MODE=external` verbindet sich nur der App-Container mit einer vorhandenen Datenbank. Details und sämtliche Variablen stehen unter [Docker-Konfiguration](./docker-konfiguration.md).
 

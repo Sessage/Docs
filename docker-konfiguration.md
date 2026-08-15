@@ -7,7 +7,11 @@ docker/community/
 docker/enterprise/
 ```
 
-Die `.env`-Datei wird aus `.env.example` kopiert und enthält die installationsabhängigen Einstellungen. Sie gehört nicht in eine öffentliche Versionsverwaltung und muss zusammen mit den persistenten Daten gesichert werden.
+Die `.env`-Datei enthält installationsabhängige Einstellungen und Geheimnisse. Im Enterprise-Paket erzeugen `install.ps1` beziehungsweise `install.sh` sie interaktiv und mit zufälligen Schlüsseln. Für eine manuelle oder Community-Installation wird sie aus `.env.example` kopiert und jeder `CHANGE_ME`-Wert ersetzt. Sie gehört nicht in eine öffentliche Versionsverwaltung und muss zusammen mit den persistenten Daten gesichert werden.
+
+::: tip Einfacher Enterprise-Start
+Für eine normale Erstinstallation müssen diese Variablen nicht von Hand gepflegt werden. Verwenden Sie den geführten Installer und ändern Sie `.env` nur für SMTP, LDAP/AD, Push Relay oder besondere Netzwerkanforderungen.
+:::
 
 ## Datenbankmodus
 

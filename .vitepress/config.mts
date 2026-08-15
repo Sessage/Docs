@@ -26,7 +26,8 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Automatisierung und Webhooks', link: '/automatisierung' },
     { text: 'E-Mail-Import', link: '/enterprise/email-import' },
     { text: 'AD-Verzeichnisfreigaben', link: '/enterprise/verzeichnisfreigaben' },
-    { text: 'Enterprise mit Docker installieren', link: '/enterprise/installation' }
+    { text: 'Enterprise installieren', link: '/enterprise/installation' },
+    { text: 'Enterprise ohne Docker', link: '/enterprise/direktinstallation' }
   ]},
   { text: 'Editionen und Clients', items: [
     { text: 'Installationsauswahl', link: '/installation' },
