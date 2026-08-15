@@ -217,6 +217,7 @@ Verwenden Sie nicht `down -v` und löschen Sie `storage/` nicht. Die Bind-Mounts
 - Docker ist nicht erreichbar: Docker Desktop beziehungsweise den Docker-Dienst starten. Unter Windows `wsl --status` prüfen und ausstehende WSL-Updates mit administrativen Rechten durchführen.
 - `CHANGE_ME`-Fehler: Alle Platzhalter in `.env` ersetzen.
 - Datenbank nicht erreichbar: Host, Port, Firewall, TLS-Modus und Zugangsdaten prüfen.
-- App startet wiederholt: `docker compose ... logs app` lesen; häufig ist eine Migration oder die Initialkonfiguration fehlgeschlagen.
+- PostgreSQL startet wiederholt: `docker compose ... logs postgres` lesen. Daten einer älteren PostgreSQL-Hauptversion dürfen nicht als Datenordner übernommen werden, sondern müssen per `pg_dump` und Restore migriert werden.
+- App startet wiederholt: `docker compose ... logs app` lesen; häufig ist eine Migration oder die Initialkonfiguration fehlgeschlagen. Das initiale Administratorkennwort benötigt mindestens 12 Zeichen sowie Groß- und Kleinbuchstaben, Ziffer und Sonderzeichen.
 - Einladungslink zeigt auf localhost: `APP_BASE_URL` auf die öffentliche HTTPS-Adresse setzen und App neu starten.
 - Anmeldung des initialen Administrators scheitert: Beachten, dass das Initialkennwort ein bestehendes Konto nicht überschreibt.

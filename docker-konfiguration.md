@@ -31,7 +31,7 @@ Bei `DATABASE_MODE=internal` muss Docker Compose mit dem Profil `internal-db` ge
 Die Editionspakete definieren für die Anwendung einen Healthcheck gegen `/healthz`. Die
 Update-Skripte verwenden `docker compose up --wait` und liefern erst dann Erfolg zurück, wenn
 der neue App-Container gestartet ist und diesen Check bestanden hat. Bei einem Fehler werden
-die letzten App-Logs ausgegeben.
+der vollständige Containerstatus sowie die letzten PostgreSQL- und App-Logs ausgegeben.
 
 ::: warning Sonderzeichen im Datenbankkennwort
 Die Anwendung erhält eine PostgreSQL-Verbindungszeichenfolge. Verwenden Sie für `POSTGRES_PASSWORD` ein langes, zufälliges Kennwort ohne Semikolon. Ein Base64-generierter Wert ist geeignet. Ein Semikolon würde die Verbindungszeichenfolge in weitere Felder aufteilen.
@@ -73,7 +73,7 @@ Der Host- und Container-Port dürfen gleich sein, müssen es aber nicht. Wenn `S
 | Variable | Standard | Bedeutung |
 | --- | --- | --- |
 | `INITIAL_ADMIN_EMAIL` | kein sicherer Produktionsstandard | E-Mail-Adresse des Administrators, der bei einer leeren Datenbank angelegt wird. |
-| `INITIAL_ADMIN_PASSWORD` | kein Standard | Starkes Initialkennwort. Das Update-Skript lehnt `CHANGE_ME` ab. |
+| `INITIAL_ADMIN_PASSWORD` | kein Standard | Mindestens 12 Zeichen sowie jeweils Großbuchstabe, Kleinbuchstabe, Ziffer und Sonderzeichen. Das Update-Skript lehnt `CHANGE_ME` ab. |
 | `JWT_KEY` | kein Standard | Signaturschlüssel für mobile/API-Tokens, mindestens 32 zufällige Bytes. Änderungen melden mobile Clients ab. |
 | `JWT_ISSUER` | `Sessage.Server` | Aussteller der JWTs. |
 | `JWT_AUDIENCE` | `Sessage.App` | Zielgruppe der JWTs. |
@@ -82,6 +82,8 @@ Der Host- und Container-Port dürfen gleich sein, müssen es aber nicht. Wenn `S
 | `ALLOW_REGISTRATION` | `false` | Erlaubt oder verbietet die Selbstregistrierung. |
 
 `INITIAL_ADMIN_PASSWORD` wird nur zum Erstellen des noch nicht vorhandenen initialen Kontos benötigt. Es ändert nicht automatisch das Kennwort eines bestehenden Administrators. Entfernen Sie die Variable nicht unüberlegt aus einer verwalteten Konfiguration, dokumentieren Sie aber den geregelten Kennwortwechsel.
+
+Die geführten Enterprise-Installer prüfen diese Regeln vor dem Start. Automatisch erzeugte Kennwörter erfüllen sie garantiert. Bei einer manuellen `.env`-Konfiguration muss das Kennwort ebenfalls alle Regeln erfüllen; andernfalls kann das initiale Administratorkonto nicht angelegt werden.
 
 ## SMTP
 

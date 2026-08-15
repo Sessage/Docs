@@ -132,6 +132,7 @@ Status und Logs bei interner Datenbank:
 
 ```powershell
 docker compose --env-file .env -f compose.yml --profile internal-db ps
+docker compose --env-file .env -f compose.yml --profile internal-db logs --tail 200 postgres
 docker compose --env-file .env -f compose.yml --profile internal-db logs --tail 200 app
 ```
 
@@ -142,7 +143,8 @@ Bei externer Datenbank lassen Sie `--profile internal-db` weg.
 | Problem | Prüfung |
 | --- | --- |
 | Docker nicht erreichbar | Docker-Dienst/Desktop und `docker compose version` prüfen |
-| App wird nicht gesund | App-Logs, Datenbankzugriff, freien Speicher und Migrationen prüfen |
+| PostgreSQL ist `unhealthy` oder startet neu | PostgreSQL-Logs und vorhandene Daten unter `storage/postgres/` prüfen; Daten älterer Hauptversionen nur per `pg_dump`/Restore migrieren |
+| App wird nicht gesund | App-Logs, Datenbankzugriff, freien Speicher, Migrationen und die Kennwortregeln für den initialen Administrator prüfen |
 | `license-missing` | beide Dateien unter `storage/app-data/` und Namen prüfen |
 | `installation-mismatch` | Lizenz für den aktuellen Inhalt von `installation.id` neu ausstellen |
 | Links zeigen auf localhost | öffentliche URL beziehungsweise `APP_BASE_URL` korrigieren |
