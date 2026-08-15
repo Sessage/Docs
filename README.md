@@ -26,9 +26,12 @@ VitePress ist anschließend standardmäßig unter `http://127.0.0.1:5173` erreic
 Weitere Befehle aus dem Monorepo-Stamm:
 
 ```powershell
+npm run docs:openapi
 npm run docs:build
 npm run docs:preview
 ```
+
+`docs:openapi` erzeugt die statische API-Referenz in `docs/public/openapi/sessage-v1.json` neu. Führen Sie den Export nach Änderungen an API-Controllern, Request-/Response-Modellen oder XML-Kommentaren aus und übernehmen Sie die aktualisierte JSON-Datei zusammen mit der Codeänderung. Der Export wertet die Controller-Metadaten aus und benötigt weder einen laufenden Server noch eine Datenbank.
 
 Im eigenständigen Docs-Repository heißen die entsprechenden Befehle `npm run build` und `npm run preview`.
 

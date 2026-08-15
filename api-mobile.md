@@ -81,7 +81,7 @@ Wenn eine Version nicht mehr unterstützt wird, kann die API mit `426 Upgrade Re
 
 ## Swagger
 
-In der Entwicklungsumgebung stellt der Server eine Swagger-Oberfläche unter `/swagger` bereit. In Produktion ist Swagger deaktiviert.
+In der Entwicklungsumgebung stellt der Server eine Swagger-Oberfläche unter `/swagger` bereit. In Produktion ist Swagger deaktiviert. Die Anleitung [Swagger und OpenAPI](./swagger.md) beschreibt den lokalen Start, die Anmeldung mit JWT oder persönlichem Zugriffstoken, das Ausführen von Anfragen und die häufigsten Fehlerbilder.
 
 
 

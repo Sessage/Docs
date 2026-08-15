@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "swagger-ui-dist": "^5.32.12"
   }
 }
-

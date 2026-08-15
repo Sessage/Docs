@@ -1,3 +1,13 @@
+.sessage-swagger-viewer { margin: 24px 0; color-scheme: light; }
+.sessage-swagger-viewer .swagger-ui { color: #1f2937; font-family: var(--vp-font-family-base); }
+.sessage-swagger-viewer .swagger-ui .info { margin: 20px 0; }
+.sessage-swagger-viewer .swagger-ui .info .title { color: #172554; font-family: var(--vp-font-family-base); }
+.sessage-swagger-viewer .swagger-ui .scheme-container { display: none; }
+.sessage-swagger-viewer .swagger-ui .authorization__btn { display: none; }
+.sessage-swagger-viewer .swagger-ui .wrapper { max-width: none; padding: 0; }
+.sessage-swagger-viewer .swagger-ui select { background-color: #fff; }
+.dark .sessage-swagger-viewer { padding: 16px; border-radius: 12px; background: #fff; }
+
 .sessage-youtube-figure { margin: 28px 0; }
 .sessage-youtube-embed { overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--vp-c-divider); border-radius: 16px; background: linear-gradient(145deg, #071a36, #123c73 58%, #246bfd); box-shadow: 0 18px 48px rgb(7 26 54 / 18%); color: #fff; }
 .sessage-youtube-embed iframe { display: block; width: 100%; height: 100%; border: 0; }
