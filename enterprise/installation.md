@@ -101,7 +101,7 @@ Der Endpunkt muss HTTP 200 liefern. `APP_BASE_URL` muss der öffentlichen HTTPS-
 ## Aktualisieren
 
 1. Prüfsumme und Releasehinweise prüfen.
-2. Datenbank, `.env` und den gesamten Ordner `storage/` extern sichern.
+2. Einen geprüften Datenbank-Dump, `.env` und den gesamten Ordner `storage/` extern sichern.
 3. Nur die austauschbaren Paketdateien aus der neuen Version übernehmen; `.env`, `storage/` und `backups/` erhalten.
 4. Im Installationsordner starten:
 
@@ -128,6 +128,8 @@ Gemeinsam sichern:
 
 Container dürfen ersetzt werden. Verwenden Sie nicht `docker compose down -v` und löschen Sie keine Ordner unter `storage/`.
 
+Die interne PostgreSQL-Datenbank liegt im Docker-Volume `sessage-enterprise-postgres-data`. Dadurch funktionieren Eigentümer und Zugriffsrechte auch mit rootless Docker, `userns-remap` und Installationsordnern unter `/var/www`. Das Volume bleibt bei `docker compose down` erhalten, würde durch `docker compose down -v` jedoch gelöscht. Maßgebliche Sicherung für Wiederherstellungen bleibt der geprüfte Dump unter `backups/` beziehungsweise dessen externe Kopie.
+
 Status und Logs bei interner Datenbank:
 
 ```powershell
@@ -143,7 +145,7 @@ Bei externer Datenbank lassen Sie `--profile internal-db` weg.
 | Problem | Prüfung |
 | --- | --- |
 | Docker nicht erreichbar | Docker-Dienst/Desktop und `docker compose version` prüfen |
-| PostgreSQL ist `unhealthy` oder startet neu | PostgreSQL-Logs und vorhandene Daten unter `storage/postgres/` prüfen; Daten älterer Hauptversionen nur per `pg_dump`/Restore migrieren |
+| PostgreSQL ist `unhealthy` oder startet neu | PostgreSQL-Logs, `docker volume inspect sessage-enterprise-postgres-data` und freien Speicher prüfen; Daten älterer Hauptversionen nur per `pg_dump`/Restore migrieren |
 | App wird nicht gesund | App-Logs, Datenbankzugriff, freien Speicher, Migrationen und die Kennwortregeln für den initialen Administrator prüfen |
 | `license-missing` | beide Dateien unter `storage/app-data/` und Namen prüfen |
 | `installation-mismatch` | Lizenz für den aktuellen Inhalt von `installation.id` neu ausstellen |

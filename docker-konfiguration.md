@@ -28,6 +28,8 @@ Für eine normale Erstinstallation müssen diese Variablen nicht von Hand gepfle
 
 Bei `DATABASE_MODE=internal` muss Docker Compose mit dem Profil `internal-db` gestartet werden. Die mitgelieferten Skripte erledigen das automatisch. Bei `DATABASE_MODE=external` lassen sie das Profil weg.
 
+Enterprise speichert die interne Datenbank im Docker-Volume `sessage-enterprise-postgres-data`. Dadurch ist die PostgreSQL-UID nicht von Rechten des Installationsordners abhängig. Community verwendet weiterhin `storage/postgres/` als Bind-Mount. In beiden Editionen ist ein geprüfter logischer Dump die maßgebliche Sicherung; `docker compose down -v` darf bei Enterprise niemals verwendet werden.
+
 Die Editionspakete definieren für die Anwendung einen Healthcheck gegen `/healthz`. Die
 Update-Skripte verwenden `docker compose up --wait` und liefern erst dann Erfolg zurück, wenn
 der neue App-Container gestartet ist und diesen Check bestanden hat. Bei einem Fehler werden
