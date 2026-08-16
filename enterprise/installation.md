@@ -68,7 +68,7 @@ Stellen Sie in der internen Lizenzverwaltung eine Lizenz für genau diese ID aus
 - `todosuite.license.json`
 - `license-signing-public.pem`
 
-Installieren Sie beide Dateien mit dem mitgelieferten Skript. Es prüft Dateiformat und Installations-ID, kopiert atomar und wartet nach dem Neustart auf einen erfolgreichen Healthcheck.
+Installieren Sie beide Dateien mit dem mitgelieferten Skript. Es prüft Dateiformat und Installations-ID, kopiert atomar und wartet nach dem Neustart auf einen erfolgreichen Healthcheck. Erfolg wird erst gemeldet, nachdem die laufende Anwendung Signatur, Installations-ID und Laufzeit bestätigt hat.
 
 Windows:
 
@@ -113,7 +113,7 @@ Der Endpunkt muss HTTP 200 liefern. `APP_BASE_URL` muss der öffentlichen HTTPS-
 ./update.sh
 ```
 
-Bei interner PostgreSQL-Datenbank legt das Skript vor einem Update automatisch einen geprüften Dump unter `backups/` an. Bei externer Datenbank bleibt das Backup Aufgabe des Datenbankbetriebs. Das Update gilt erst als erfolgreich, wenn `/healthz` wieder antwortet.
+Bei interner PostgreSQL-Datenbank legt das Skript vor einem Update automatisch einen geprüften Dump unter `backups/` an. Bei externer Datenbank bleibt das Backup Aufgabe des Datenbankbetriebs. Das Update gilt erst als erfolgreich, wenn `/healthz` wieder antwortet und eine vorhandene Enterprise-Lizenz von `/healthz/license` als gültig bestätigt wurde. Lizenzdateien aus älteren Ablagen unter `storage/App_Data/` oder direkt unter `storage/` werden bei leerem aktuellem Ziel automatisch nach `storage/app-data/` kopiert.
 
 ## Betrieb und Sicherung
 
@@ -153,3 +153,5 @@ Bei externer Datenbank lassen Sie `--profile internal-db` weg.
 | Enterprise-Modul fehlt | Lizenzstatus und freigeschaltete Capability kontrollieren |
 
 Der authentifizierte Endpunkt `GET /api/enterprise/status` zeigt Lizenzstatus, Installations-ID, Capabilities und Modulzustände. Ohne gültige Lizenz bleibt der Community-Kern verfügbar; Enterprise-Module werden nicht aktiviert.
+
+Für die schnelle Betriebsdiagnose liefert `GET /healthz/license` ausschließlich Edition, Gültigkeit, maschinenlesbaren Status und Ablaufzeit. Lizenzinhalt, Kunde, Installations-ID und Schlüsselpfade werden dort nicht ausgegeben. Die Update- und Lizenzinstallationsskripte rufen diesen Endpunkt innerhalb des Containers automatisch auf.
