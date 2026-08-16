@@ -49,7 +49,7 @@ Wichtige Admin-Themen:
 
 Sessage kann gegen Active Directory und generische LDAP-Verzeichnisse prüfen. AD bleibt ohne weitere Angaben rückwärtskompatibel: Anmeldungen werden über `sAMAccountName` oder `userPrincipalName` gesucht. Für LDAP können unter anderem `uid`, `cn` oder ein eigener sicher parametrisierter Suchfilter verwendet werden. Auch Benutzer-/Gruppenobjektklassen, E-Mail- und Anzeigename sowie `memberOf`, `member`, `uniqueMember` oder `memberUid` lassen sich abbilden.
 
-Die vollständigen Optionen und Beispiele für AD, OpenLDAP und POSIX-Gruppen stehen unter [Docker-Konfiguration](./docker-konfiguration.md#active-directory-und-ldap). Das technische Suchkonto benötigt nur Leserechte. Nutzen Sie in Produktion LDAPS oder StartTLS und lassen Sie den Transport-Fallback deaktiviert.
+Die Schritt-für-Schritt-Einrichtung für AD, OpenLDAP und POSIX-Gruppen steht unter [AD-Anbindung](./ad-anbindung.md). Die technische Variablenreferenz befindet sich ergänzend unter [Docker-Konfiguration](./docker-konfiguration.md#active-directory-und-ldap). Das technische Suchkonto benötigt nur Leserechte. Nutzen Sie in Produktion LDAPS oder StartTLS und lassen Sie den Transport-Fallback deaktiviert.
 
 Die **AD/LDAP-Anmeldung ist in Community und Enterprise enthalten**. Nur das direkte Berechtigen von AD-Benutzern und AD-Gruppen im Teilen-Dialog benötigt Enterprise Identity Governance. Siehe [AD-Verzeichnisfreigaben](./enterprise/verzeichnisfreigaben.md).
 

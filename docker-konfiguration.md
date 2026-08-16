@@ -136,6 +136,8 @@ Erlauben Sie dem App-Container ausschließlich ausgehendes TCP/443 zu `push.sess
 
 AD/LDAP-Anmeldung ist in Community und Enterprise verfügbar. Die Auswahl von Verzeichnisbenutzern und -gruppen in Freigabedialogen ist eine Enterprise-Funktion.
 
+Die vollständige Einrichtung mit sicheren AD-, LDAPS-, StartTLS- und OpenLDAP-Beispielen, Neustartbefehlen und Fehlerbehebung steht auf der eigenen Seite [AD-Anbindung](./ad-anbindung.md). Die folgende Tabelle dient als technische Variablenreferenz.
+
 | Variable | Standard | Bedeutung |
 | --- | --- | --- |
 | `AD_ENABLED` | `false` | Aktiviert die AD/LDAP-Anmeldung. |

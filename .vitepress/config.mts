@@ -32,6 +32,7 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
   { text: 'Editionen und Clients', items: [
     { text: 'Installationsauswahl', link: '/installation' },
     { text: 'Docker-Konfiguration', link: '/docker-konfiguration' },
+    { text: 'AD-Anbindung', link: '/ad-anbindung' },
     { text: 'API und mobile App', link: '/api-mobile' },
     { text: 'Swagger und OpenAPI', link: '/swagger' }
   ]}

@@ -52,6 +52,6 @@ Die Verzeichnissuche verwendet das konfigurierte Dienstkonto:
 - `ActiveDirectory__BindPassword`
 - `ActiveDirectory__BaseDn`
 
-Attribute, Objektklassen und Suchfilter entsprechen den Einstellungen unter [Docker-Konfiguration](../docker-konfiguration.md#active-directory-und-ldap). Dadurch nutzt auch der Enterprise-Verzeichnis-Tab bei OpenLDAP beispielsweise `uid` und `inetOrgPerson` statt der AD-spezifischen Felder.
+Die grundlegende Verbindung wird unter [AD-Anbindung](../ad-anbindung.md) eingerichtet. Attribute, Objektklassen und Suchfilter entsprechen der ergänzenden Referenz unter [Docker-Konfiguration](../docker-konfiguration.md#active-directory-und-ldap). Dadurch nutzt auch der Enterprise-Verzeichnis-Tab bei OpenLDAP beispielsweise `uid` und `inetOrgPerson` statt der AD-spezifischen Felder.
 
 Das Dienstkonto benötigt Leserechte auf die Benutzer- und Gruppenobjekte im Suchbereich.

@@ -39,7 +39,7 @@ chmod +x install.sh update.sh install-license.sh
 
 Der Assistent fragt nur die öffentliche URL, den lokalen Port, den ersten Administrator und die Datenbankart ab. Leere Administrator-Kennwörter werden sicher generiert; Datenbank- und JWT-Geheimnisse für die interne Datenbank ebenfalls. Danach erstellt er `.env`, die persistenten Ordner und startet Sessage. Bewahren Sie ein angezeigtes Initialkennwort nur bis zur ersten Anmeldung sicher auf und ändern Sie es anschließend.
 
-Für eine Einzelinstallation wählen Sie `intern`. Bei `extern` müssen Datenbank, Benutzer, Netzwerkzugriff, TLS und Backups bereits eingerichtet sein. Details zu allen Variablen stehen unter [Docker-Konfiguration](../docker-konfiguration.md).
+Für eine Einzelinstallation wählen Sie `intern`. Bei `extern` müssen Datenbank, Benutzer, Netzwerkzugriff, TLS und Backups bereits eingerichtet sein. Details zu allen Variablen stehen unter [Docker-Konfiguration](../docker-konfiguration.md). Die Verzeichnisanmeldung wird separat unter [AD-Anbindung](../ad-anbindung.md) erklärt.
 
 ::: warning Vorhandene Installation
 `install.ps1` beziehungsweise `install.sh` ist nur für die Erstinstallation. Sobald `.env` vorhanden ist, verwenden Sie für neue Versionen ausschließlich `update.ps1` oder `update.sh`.
