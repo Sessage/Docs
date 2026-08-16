@@ -63,28 +63,25 @@ Get-Content .\storage\app-data\installation.id
 cat storage/app-data/installation.id
 ```
 
-Stellen Sie in der internen Lizenzverwaltung eine Lizenz für genau diese ID aus. Sie benötigen:
-
-- `todosuite.license.json`
-- `license-signing-public.pem`
+Stellen Sie in der internen Lizenzverwaltung eine Lizenz für genau diese ID aus und laden Sie dort das `sessage-license-….zip` herunter. Es enthält Lizenz und exakt passenden öffentlichen Schlüssel.
 
 Installieren Sie beide Dateien mit dem mitgelieferten Skript. Es prüft Dateiformat und Installations-ID, kopiert atomar und wartet nach dem Neustart auf einen erfolgreichen Healthcheck. Erfolg wird erst gemeldet, nachdem die laufende Anwendung Signatur, Installations-ID und Laufzeit bestätigt hat.
 
 Windows:
 
 ```powershell
-.\install-license.ps1 `
-  -LicenseFile C:\Transfer\todosuite.license.json `
-  -PublicKeyFile C:\Transfer\license-signing-public.pem
+.\install-license.ps1 -LicenseFile C:\Transfer\sessage-license.zip
 ```
 
 Linux:
 
 ```bash
-./install-license.sh /tmp/todosuite.license.json /tmp/license-signing-public.pem
+./install-license.sh /tmp/sessage-license.zip
 ```
 
-Der private Signaturschlüssel bleibt ausschließlich auf dem internen Lizenzserver. Sichern Sie `storage/app-data/` vollständig; ohne dieselbe `installation.id` ist eine neue Lizenz nötig.
+Unter Linux wird dafür `unzip` benötigt, beispielsweise `sudo apt install unzip` auf Debian/Ubuntu.
+
+Der private Signaturschlüssel bleibt ausschließlich auf dem internen Lizenzserver. Das Installationsskript rollt bei einer ungültigen Signatur oder einem Startfehler automatisch auf die vorherige Lizenz zurück und bewahrt die abgelehnten Dateien unter `storage/app-data/rejected-license-*` auf. Sichern Sie `storage/app-data/` vollständig; ohne dieselbe `installation.id` ist eine neue Lizenz nötig.
 
 ## Adresse und Reverse Proxy
 
@@ -149,6 +146,7 @@ Bei externer Datenbank lassen Sie `--profile internal-db` weg.
 | App wird nicht gesund | App-Logs, Datenbankzugriff, freien Speicher, Migrationen und die Kennwortregeln für den initialen Administrator prüfen |
 | `license-missing` | beide Dateien unter `storage/app-data/` und Namen prüfen |
 | `installation-mismatch` | Lizenz für den aktuellen Inhalt von `installation.id` neu ausstellen |
+| `public-key-mismatch` | zusammengehöriges ZIP-Lizenzpaket neu herunterladen und installieren |
 | Links zeigen auf localhost | öffentliche URL beziehungsweise `APP_BASE_URL` korrigieren |
 | Enterprise-Modul fehlt | Lizenzstatus und freigeschaltete Capability kontrollieren |
 

@@ -76,18 +76,18 @@ Die Installations-ID liegt unter Windows in `C:\ProgramData\Sessage\Enterprise\A
 Windows, als Administrator:
 
 ```powershell
-.\install-license.ps1 `
-  -LicenseFile C:\Transfer\todosuite.license.json `
-  -PublicKeyFile C:\Transfer\license-signing-public.pem
+.\install-license.ps1 -LicenseFile C:\Transfer\sessage-license.zip
 ```
 
 Linux:
 
 ```bash
-sudo sh install-license.sh /tmp/todosuite.license.json /tmp/license-signing-public.pem
+sudo sh install-license.sh /tmp/sessage-license.zip
 ```
 
-Das Skript verweigert eine Lizenz mit abweichender Installations-ID und wartet nach dem Neustart auf `/healthz`.
+Das Linux-Skript benötigt `unzip` (`sudo apt install unzip` auf Debian/Ubuntu).
+
+Das Skript verweigert ein Paket mit abweichender Installations-ID und prüft nach dem Neustart zusätzlich `/healthz/license`. Bei ungültiger Signatur, falschem Schlüssel oder Startfehler stellt es die vorherige Lizenz automatisch wieder her; die abgelehnten Dateien bleiben in einem `rejected-license-*`-Ordner erhalten.
 
 ## Reverse Proxy und Firewall
 
