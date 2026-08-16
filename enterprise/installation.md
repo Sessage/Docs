@@ -83,6 +83,8 @@ Unter Linux wird dafür `unzip` benötigt, beispielsweise `sudo apt install unzi
 
 Der private Signaturschlüssel bleibt ausschließlich auf dem internen Lizenzserver. Das Installationsskript rollt bei einer ungültigen Signatur oder einem Startfehler automatisch auf die vorherige Lizenz zurück und bewahrt die abgelehnten Dateien unter `storage/app-data/rejected-license-*` auf. Sichern Sie `storage/app-data/` vollständig; ohne dieselbe `installation.id` ist eine neue Lizenz nötig.
 
+Der Installer verlangt das aktuelle Lizenzformat 3 auf beiden Seiten. Meldet er einen veralteten Enterprise-Container, wurde zwar das Skript, aber noch nicht der neu veröffentlichte Inhalt von `publish/` aktualisiert. Meldet er eine fehlende `keyId` oder `signedPayload`, muss der separate Lizenzserver aktualisiert und die Lizenz anschließend **neu ausgestellt** werden.
+
 ## Adresse und Reverse Proxy
 
 Für einen Test kann Sessage direkt unter `http://server:8080` veröffentlicht werden. Produktiv sollte ein Reverse Proxy HTTPS terminieren und Sessage nur lokal erreichen. Geben Sie dann im Assistenten die öffentliche URL wie `https://aufgaben.example.de` und als Bind-Adresse `127.0.0.1` an.
