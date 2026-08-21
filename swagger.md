@@ -28,7 +28,7 @@ dotnet run --project .\TodoSuite.Enterprise.Server\TodoSuite.Enterprise.Server.c
 
 :::
 
-Die Startprofile setzen `ASPNETCORE_ENVIRONMENT` auf `Development`. Das Enterprise-Profil setzt eine lokal erreichbare PostgreSQL-Instanz auf Port `55432` voraus. Die tatsächlich gebundenen Adressen gibt der Server beim Start im Terminal aus.
+Die Startprofile setzen `ASPNETCORE_ENVIRONMENT` auf `Development`. **Enterprise (lokales PostgreSQL)** verwendet `localhost:5432`; für den vorbereiteten Container auf Port `55432` wählen Sie stattdessen **Enterprise (Docker PostgreSQL)**. Die tatsächlich gebundenen Adressen gibt der Server beim Start im Terminal aus.
 
 Öffnen Sie anschließend die passende Adresse:
 
