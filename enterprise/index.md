@@ -31,6 +31,7 @@ Der Enterprise-Host enthält nur die Produktkomposition. Fachliche Erweiterungen
 - [Portfolios und Dashboards](./portfolios-dashboards.md)
 - [Formulare](./formulare.md)
 - [Automatisierung und Webhooks](../automatisierung.md)
+- [Automatisierungsplugins entwickeln](./automatisierungsplugins.md)
 - [E-Mail-Import](./email-import.md)
 - [AD-Verzeichnisfreigaben](./verzeichnisfreigaben.md)
 - [Enterprise installieren und lizenzieren](./installation.md)

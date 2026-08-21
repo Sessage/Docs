@@ -99,8 +99,13 @@ Die geführten Enterprise-Installer prüfen diese Regeln vor dem Start. Automati
 | `SMTP_FROM_ADDRESS` | leer | Absenderadresse. |
 | `SMTP_FROM_NAME` | `Sessage` | Anzeigename des Absenders. |
 | `EMAIL_IMPORT_INTERVAL_MINUTES` | `15` | Nur Enterprise: Abrufintervall des E-Mail-Imports. |
+| `AUTOMATION_PLUGINS_ENABLED` | `true` | Nur Enterprise: Laden kundeneigener Automatisierungsplugins aktivieren. |
+| `AUTOMATION_PLUGIN_TIMEOUT_SECONDS` | `30` | Nur Enterprise: maximales Zeitfenster einer Plugin-Aktion (1–300 Sekunden). |
 
 Testen Sie nach der Einrichtung sowohl den Versand als auch Fehlerfälle. `APP_BASE_URL` muss auf die extern erreichbare Adresse zeigen. Sie wird auch für Bestätigungs- und Passwort-Reset-Links verwendet und darf deshalb nicht aus Request- oder Forwarded-Host-Headern abgeleitet werden. Bei aktiviertem SMTP oder aktivierter Selbstregistrierung verweigert eine Production-Instanz den Start, wenn keine gültige `APP_BASE_URL` gesetzt ist.
+
+Das Enterprise-Compose bindet `storage/plugins/` als `/app/plugins` ein. Plugins werden nur beim
+Anwendungsstart eingelesen; nach Änderungen ist der App-Container neu zu starten.
 
 ## Reverse Proxy und Mobile-Kompatibilität
 

@@ -24,6 +24,7 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Portfolios und Dashboards', link: '/enterprise/portfolios-dashboards' },
     { text: 'Formulare und benutzerdefinierte Felder', link: '/enterprise/formulare' },
     { text: 'Automatisierung und Webhooks', link: '/automatisierung' },
+    { text: 'Automatisierungsplugins entwickeln', link: '/enterprise/automatisierungsplugins' },
     { text: 'E-Mail-Import', link: '/enterprise/email-import' },
     { text: 'AD-Verzeichnisfreigaben', link: '/enterprise/verzeichnisfreigaben' },
     { text: 'Enterprise installieren', link: '/enterprise/installation' },

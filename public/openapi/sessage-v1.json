@@ -1918,6 +1918,74 @@
         }
       }
     },
+    "/api/mobile/lists/{listId}/tasks/{taskId}/approval": {
+      "post": {
+        "tags": [
+          "MobileSync"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecisionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecisionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalDecisionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoTaskEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoTaskEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoTaskEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/mobile/lists/{listId}/custom-fields/reorder": {
       "put": {
         "tags": [
@@ -5521,6 +5589,57 @@
         }
       }
     },
+    "/api/lists/{listId}/tasks/{taskId}/approval": {
+      "post": {
+        "tags": [
+          "TodoApi"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoApprovalDecisionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoApprovalDecisionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoApprovalDecisionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/lists/{listId}/tasks/{taskId}/attachments": {
       "post": {
         "tags": [
@@ -5628,6 +5747,15 @@
             "nullable": true
           },
           "isAdmin": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApprovalDecisionRequest": {
+        "type": "object",
+        "properties": {
+          "approved": {
             "type": "boolean"
           }
         },
@@ -6116,6 +6244,10 @@
           "enabled": {
             "type": "boolean"
           },
+          "intervalMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
           "host": {
             "type": "string",
             "nullable": true
@@ -6159,6 +6291,10 @@
         "properties": {
           "enabled": {
             "type": "boolean"
+          },
+          "intervalMinutes": {
+            "type": "integer",
+            "format": "int32"
           },
           "host": {
             "type": "string",
@@ -6435,7 +6571,10 @@
           7,
           8,
           9,
-          10
+          10,
+          11,
+          12,
+          13
         ],
         "type": "integer",
         "format": "int32"
@@ -6844,6 +6983,25 @@
         "type": "integer",
         "format": "int32"
       },
+      "TodoApprovalDecisionRequest": {
+        "type": "object",
+        "properties": {
+          "approved": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TodoApprovalStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "TodoAttachmentEntity": {
         "required": [
           "fileName"
@@ -6898,9 +7056,19 @@
             "format": "uuid",
             "nullable": true
           },
+          "fieldKey": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
           "labelId": {
             "type": "string",
             "format": "uuid",
+            "nullable": true
+          },
+          "pluginActionId": {
+            "maxLength": 300,
+            "type": "string",
             "nullable": true
           },
           "value": {
@@ -6929,7 +7097,10 @@
           9,
           10,
           11,
-          12
+          12,
+          13,
+          14,
+          15
         ],
         "type": "integer",
         "format": "int32"
@@ -6958,6 +7129,11 @@
           "customFieldId": {
             "type": "string",
             "format": "uuid",
+            "nullable": true
+          },
+          "fieldKey": {
+            "maxLength": 100,
+            "type": "string",
             "nullable": true
           },
           "value": {
@@ -7046,7 +7222,11 @@
           2,
           3,
           4,
-          5
+          5,
+          6,
+          7,
+          8,
+          9
         ],
         "type": "integer",
         "format": "int32"
@@ -7066,6 +7246,10 @@
             "type": "string"
           },
           "author": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorUserId": {
             "type": "string",
             "nullable": true
           },
@@ -7807,6 +7991,31 @@
             "format": "int32"
           },
           "assignee": {
+            "type": "string",
+            "nullable": true
+          },
+          "approverUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "approvalStatus": {
+            "$ref": "#/components/schemas/TodoApprovalStatus"
+          },
+          "approvalRequestedAtUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "approvalRequestedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "approvalDecisionAtUtc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "approvalDecisionByUserId": {
             "type": "string",
             "nullable": true
           },

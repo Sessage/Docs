@@ -87,6 +87,10 @@ Webhook-Ziele müssen auf öffentliche IP-Adressen zeigen. Private, lokale, Link
 
 Aus Sicherheitsgründen sind nur öffentliche HTTP- oder HTTPS-Ziele vorgesehen. Private, lokale und Loopback-Adressen werden blockiert. Redirects sind deaktiviert.
 
+## Kundeneigene Plugin-Aktionen
+
+Enterprise-Installationen können zusätzliche Aktionen beim Serverstart aus einem Plugin-Verzeichnis laden. Die Aktionen und ihre Eingabefelder werden durch das jeweilige Plugin beschrieben und erscheinen im Regeleditor in der Gruppe **Plugins**. Entwicklung, Installation und Sicherheitsmodell beschreibt [Automatisierungsplugins entwickeln](./enterprise/automatisierungsplugins.md).
+
 ## Beispiele
 
 ### Eingang farbig markieren
