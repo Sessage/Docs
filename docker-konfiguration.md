@@ -131,9 +131,10 @@ Diese Variablen existieren im Enterprise-Paket. Sie werden nur verwendet, wenn d
 | `PUSH_RELAY_ENDPOINT` | `https://push.sessage.com` | Feste HTTPS-Basisadresse des zentralen Sessage Push Relay. |
 | `PUSH_RELAY_TENANT_ID` | leer | Der Kundeninstallation zugewiesene Relay-Mandant. |
 | `PUSH_RELAY_API_KEY` | leer | Geheimer, installationsbezogener Relay-Schlüssel. Nur in `.env` beziehungsweise einem Secret Store ablegen. |
+| `PUSH_RELAY_PSEUDONYMIZATION_KEY` | leer | Stabiler lokaler Schlüssel für pseudonyme Benutzer- und Gerätekennungen. Darf bei Relay-API-Key-Rotationen nicht geändert werden. Ohne Wert wird aus Kompatibilitätsgründen der API-Key verwendet. |
 | `PUSH_RELAY_TIMEOUT_SECONDS` | `10` | Zeitlimit pro Relay-Aufruf; zulässig sind intern 2 bis 60 Sekunden. |
 
-Alle vier Werte werden in ASP.NET Core unter `PushRelay__...` abgebildet. Fehlen Mandant oder Schlüssel, meldet `GET /api/enterprise/push/status` Push als nicht konfiguriert. Der Server behandelt eine vorübergehende Relay-Störung als Best-Effort-Fehler: Der lokale In-App-Eintrag bleibt erhalten, die fachliche Änderung wird nicht zurückgerollt.
+Alle fünf Werte werden in ASP.NET Core unter `PushRelay__...` abgebildet. Fehlen Mandant oder API-Schlüssel, meldet `GET /api/enterprise/push/status` Push als nicht konfiguriert. Der Server behandelt eine vorübergehende Relay-Störung als Best-Effort-Fehler: Der lokale In-App-Eintrag bleibt erhalten, die fachliche Änderung wird nicht zurückgerollt. Bei einer Bestandsinstallation muss `PUSH_RELAY_PSEUDONYMIZATION_KEY` vor der ersten API-Key-Rotation auf den bisherigen API-Key gesetzt werden; anschließend bleibt er dauerhaft unverändert.
 
 Erlauben Sie dem App-Container ausschließlich ausgehendes TCP/443 zu `push.sessage.com`. Die Mobile-Geräte kommunizieren für Registrierung und Einstellungen mit ihrer lokalen Sessage-Installation; native Zustellung erfolgt anschließend über APNs, Firebase Cloud Messaging beziehungsweise WNS.
 
