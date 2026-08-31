@@ -26,6 +26,7 @@ Sessage begrenzt die Integration trotzdem an mehreren Stellen:
 - jedes Plugin benötigt ein gültiges Manifest mit API-Version 1;
 - Abhängigkeiten werden in einem eigenen `AssemblyLoadContext` aufgelöst;
 - ein fehlerhaftes Plugin verhindert den Serverstart nicht und wird protokolliert;
+- Manifeste sind auf 1 MiB, Plugins auf 100 Aktionen und Aktionen auf 100 Eingabefelder begrenzt;
 - einzelne Ausführungen besitzen standardmäßig ein Zeitlimit von 30 Sekunden;
 - höchstens 100 zurückgegebene Sessage-Aktionen werden akzeptiert;
 - rekursive Plugin-Aktionen und das Umgehen der Webhook-Prüfung sind gesperrt;
@@ -144,7 +145,12 @@ public sealed class DmsPlugin : ISessageAutomationPlugin
 }
 ```
 
-Die Plugin-Instanz wird für jede Ausführung neu erzeugt. Speichern Sie keine Aufgaben- oder Benutzerzustände in statischen Feldern. Wiederverwendbare Netzwerkclients dürfen thread-sicher und statisch sein.
+Die Plugin-Instanz wird für jede Ausführung neu erzeugt. Implementiert sie `IAsyncDisposable` oder
+`IDisposable`, ruft der Host die entsprechende Freigabe nach der Ausführung auf. Bei einem Timeout
+wird die Instanz erst freigegeben, sobald der noch laufende Plugin-Task tatsächlich endet, damit
+Ausführung und Freigabe nicht parallel auf denselben Ressourcen arbeiten. Speichern Sie keine
+Aufgaben- oder Benutzerzustände in statischen Feldern. Wiederverwendbare Netzwerkclients dürfen
+thread-sicher und statisch sein.
 
 ## Eingabefelder beschreiben
 
@@ -161,7 +167,7 @@ Die Plugin-Instanz wird für jede Ausführung neu erzeugt. Speichern Sie keine A
 | `Person` | angenommene Personen der Liste |
 | `Secret` | Passwortfeld; verschlüsselte serverseitige Speicherung |
 
-`Required`, `Description` und `DefaultValue` ergänzen Pflichtprüfung, Hilfetext und Startwert. Schlüssel müssen innerhalb einer Aktion eindeutig und stabil bleiben. Das nachträgliche Umbenennen eines Schlüssels lässt gespeicherte Regeln den alten Wert verlieren.
+`Required`, `Description` und `DefaultValue` ergänzen Pflichtprüfung, Hilfetext und Startwert. Schlüssel müssen innerhalb einer Aktion eindeutig und stabil bleiben. Auswahlwerte müssen eindeutig sein; ihr Standardwert muss einer der beschriebenen Optionen entsprechen. Boolesche und numerische Standardwerte werden bereits beim Laden des Plugins geprüft. `Secret`-Felder dürfen keinen Standardwert besitzen, da dieser sonst an die Clients veröffentlicht würde. Das nachträgliche Umbenennen eines Schlüssels lässt gespeicherte Regeln den alten Wert verlieren.
 
 ## Aufgabe lesen und Sessage-Aktionen auslösen
 

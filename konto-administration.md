@@ -2,11 +2,13 @@
 
 ## Profil
 
-Im Profil können Sie persönliche Angaben und das Profilbild verwalten. Profilbilder können hochgeladen, zugeschnitten und gelöscht werden.
+Im Profil können Sie persönliche Angaben und das Profilbild verwalten. Profilbilder können per Dateiauswahl oder Drag-and-drop hochgeladen, auf 128 × 128 Pixel zugeschnitten und gelöscht werden. Der Server prüft Dateityp, Signatur, Größe und Bildabmessungen. Beim Ersetzen bleibt das bisherige Bild erhalten, bis das neue Bild vollständig gespeichert wurde.
 
 ## Konto
 
 Im Kontobereich können je nach Einrichtung Passwort, E-Mail-Adresse und Sicherheitsoptionen verwaltet werden. E-Mail-Adressen sind eindeutig und können verifiziert werden.
+
+Nach einer Passwortänderung wird die Web-Sitzung erneuert. Die mobile App erhält gleichzeitig einen neuen, an den geänderten Sicherheitsstand gebundenen Anmeldetoken, sodass die Sitzung nicht unmittelbar nach der erfolgreichen Änderung ungültig wird. Beim dauerhaften Löschen eines Kontos werden auch dessen persönliche API-Tokens und gespeichertes Profilbild entfernt.
 
 Klicken Sie unten links auf Ihren Avatar, um Konto, Profilbild, API-Zugriffstoken und – mit entsprechender Rolle – den Adminbereich zu öffnen.
 
@@ -17,6 +19,8 @@ Klicken Sie unten links auf Ihren Avatar, um Konto, Profilbild, API-Zugriffstoke
 Personal Access Tokens ermöglichen API-Zugriff ohne interaktives Browser-Login. Sie sind für Integrationen und Automatisierungen gedacht.
 
 Neue Tokens laufen standardmäßig nach 90 Tagen ab. Der Betreiber kann die Laufzeit über `PersonalAccessTokens:LifetimeDays` beziehungsweise `PERSONAL_ACCESS_TOKEN_LIFETIME_DAYS` zwischen 1 und 365 Tagen festlegen. Bei Einführung der Ablaufzeit vorhandene Tokens erhalten durch die Datenbankmigration eine neue Frist von 90 Tagen. Abgelaufene Tokens werden bei der Authentifizierung abgelehnt und sollten anschließend gelöscht oder ersetzt werden.
+
+Weboberfläche und mobile API verwenden denselben serverseitigen Token-Dienst. Namen werden getrimmt und auf 200 Zeichen begrenzt; pro Benutzer sind höchstens 100 gleichzeitig aktive Tokens möglich. Der Klartextwert wird ausschließlich direkt nach dem Erstellen angezeigt. In der Datenbank liegt nur sein SHA-256-Hash. Der persönliche Datenexport enthält lediglich Token-Metadaten, niemals Tokenwert oder Hash.
 
 Beim Erstellen kann **Nur Lesezugriff** gewählt werden. Solche Tokens dürfen GET- und HEAD-Anfragen an die API ausführen, aber keine schreibenden API-Anfragen senden. Bestehende Tokens und neue Tokens ohne diese Option behalten Lese- und Schreibrechte, damit vorhandene Integrationen kompatibel bleiben.
 
@@ -30,6 +34,8 @@ Behandeln Sie Tokens wie Passwörter:
 ## Administration
 
 Administratoren können Benutzer und Rollen verwalten. Beim ersten Start kann Sessage einen initialen Admin-Benutzer anlegen.
+
+Weboberfläche und mobile Administration wenden dabei dieselben Schutzregeln an: Das aktuell angemeldete Administratorkonto kann sich nicht selbst löschen und ihm kann die eigene Administratorrolle nicht entzogen werden. Rollenänderungen werden nur als erfolgreich gemeldet, wenn Identity sie tatsächlich gespeichert hat. Beim Löschen eines anderen Kontos werden dessen persönliche API-Tokens und das gespeicherte Profilbild ebenfalls bereinigt.
 
 ![Community-Adminbereich mit Benutzeranlage und Benutzerübersicht](/images/community/administration.png)
 

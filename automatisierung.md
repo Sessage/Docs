@@ -12,7 +12,7 @@ Automatisierungen bestehen aus drei Teilen:
 2. Bedingungen: Wann darf die Regel wirklich laufen?
 3. Aktionen: Was soll Sessage tun?
 
-Alle Bedingungen einer Regel müssen zutreffen. Aktionen laufen in der Reihenfolge, in der sie gespeichert sind.
+Alle Bedingungen einer Regel müssen zutreffen. Aktionen laufen von oben nach unten. Mit den Pfeilen im Regeleditor kann ihre Reihenfolge gezielt geändert werden. Pro Regel sind bis zu 100 Bedingungen und 100 Aktionen möglich.
 
 ## Automatisierung öffnen
 
@@ -41,6 +41,10 @@ Verfügbare Auslöser:
 - Aufgabe wurde fertiggestellt
 - Aufgabe wurde erneut geöffnet
 - Bearbeiter wurde geändert
+- Aufgabe wurde über ein öffentliches Formular erstellt
+- Aufgabe wurde über den E-Mail-Import erstellt
+- Genehmigung wurde erteilt
+- Genehmigung wurde abgelehnt
 
 ## Bedingungen
 
@@ -57,6 +61,8 @@ Bedingungen grenzen eine Regel ein:
 
 Wenn keine Bedingung gesetzt ist, gilt die Regel für jede Aufgabe, die den Auslöser erfüllt.
 
+Bearbeiter und Genehmiger werden aus dem Listeneigentümer und den angenommenen Listenteilnehmern gewählt. Auswahlfelder, Mehrfachauswahlen, Datums-, Zahlen- und Kontrollkästchenfelder werden ihrem Feldtyp entsprechend bearbeitet und verglichen. Bei Mehrfachauswahlen spielt die Reihenfolge der gewählten Werte keine Rolle.
+
 ## Aktionen
 
 Eine Regel kann mehrere Aktionen ausführen:
@@ -71,6 +77,8 @@ Eine Regel kann mehrere Aktionen ausführen:
 - Aufgabe in eine Spalte verschieben
 - Bearbeiter setzen
 - Bearbeiter entfernen
+- Genehmiger setzen
+- Genehmigung anfordern
 - Benachrichtigung senden
 - Ausgewählte Felder per POST an einen Webhook senden
 - Wichtigkeit setzen
@@ -83,13 +91,17 @@ Die Aktion `Kartenfarbe setzen` kann nur den oberen Farbbalken oder die gesamte 
 
 Webhook-Aktionen senden ausgewählte Aufgabendaten per HTTP POST an ein externes System. Sie können festlegen, welche Felder enthalten sind und optional einen Bearer-Token hinterlegen.
 
-Webhook-Ziele müssen auf öffentliche IP-Adressen zeigen. Private, lokale, Link-Local-, reservierte und Multicast-Netze werden abgelehnt. Dieselbe Prüfung findet unmittelbar beim Aufbau der ausgehenden Verbindung statt; dadurch kann eine nachträgliche DNS-Umschaltung nicht auf interne Dienste umleiten. HTTP-Weiterleitungen werden nicht verfolgt.
+Webhook-Ziele müssen HTTP oder HTTPS verwenden und auf öffentliche IP-Adressen zeigen. Private, lokale, Loopback-, Link-Local-, reservierte und Multicast-Netze werden abgelehnt. Dieselbe Prüfung findet unmittelbar beim Aufbau der ausgehenden Verbindung statt; dadurch kann eine nachträgliche DNS-Umschaltung nicht auf interne Dienste umleiten. HTTP-Weiterleitungen werden nicht verfolgt. Im Editor können nur unterstützte Aufgaben- und benutzerdefinierte Felder ausgewählt werden.
 
-Aus Sicherheitsgründen sind nur öffentliche HTTP- oder HTTPS-Ziele vorgesehen. Private, lokale und Loopback-Adressen werden blockiert. Redirects sind deaktiviert.
+Ein optionaler Bearer-Token wird geschützt gespeichert und nach dem Speichern nicht wieder im Klartext an Browser oder App übertragen. Beim Bearbeiten kann er unverändert beibehalten, ersetzt oder ausdrücklich entfernt werden.
 
 ## Kundeneigene Plugin-Aktionen
 
 Enterprise-Installationen können zusätzliche Aktionen beim Serverstart aus einem Plugin-Verzeichnis laden. Die Aktionen und ihre Eingabefelder werden durch das jeweilige Plugin beschrieben und erscheinen im Regeleditor in der Gruppe **Plugins**. Entwicklung, Installation und Sicherheitsmodell beschreibt [Automatisierungsplugins entwickeln](./enterprise/automatisierungsplugins.md).
+
+Nicht mehr vorhandene Ziele, etwa gelöschte Labels, Felder oder entfernte Teilnehmer, werden bei der Ausführung sicher übersprungen. Die übrigen gültigen Aktionen der Regel laufen weiter. Unveränderte Werte erzeugen keine künstlichen Aufgabenänderungen oder wiederholten Genehmigungsbenachrichtigungen. Eine gemeinsame Ausführungsgrenze verhindert außerdem ausufernde Ketten, wenn mehrere Regeln gegenseitig Folgeauslöser erzeugen.
+
+Der Automatisierungseditor ist im Web und in der mobilen App verfügbar. Beide Oberflächen verwenden dieselben Regeln und dieselbe serverseitige Validierung. Mobile Serverfehler werden als verständliche Meldung angezeigt; ein Verbindungs- oder Berechtigungsfehler wird nicht als leere Regelliste dargestellt.
 
 ## Beispiele
 

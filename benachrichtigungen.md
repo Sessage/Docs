@@ -2,7 +2,7 @@
 
 ## Benachrichtigungszentrum
 
-Sessage besitzt ein Benachrichtigungszentrum für relevante Hinweise. Ungelesene Einträge können geöffnet, gelesen markiert oder gelöscht werden.
+Sessage besitzt ein Benachrichtigungszentrum für relevante Hinweise. Beim Öffnen wird ein einzelner Eintrag als gelesen markiert; alternativ können alle Einträge gemeinsam als gelesen markiert oder gelöscht werden. Web- und Mobilansicht halten Liste und Ungelesen-Zähler über SignalR aktuell. Benachrichtigungen zu Listen, auf die der Benutzer inzwischen keinen Zugriff mehr hat, werden nicht mehr angezeigt.
 
 ## Auslöser für Benachrichtigungen
 
@@ -17,7 +17,7 @@ Benachrichtigungen können entstehen durch:
 
 ## E-Mail-Benachrichtigungen
 
-E-Mail-Versand ist möglich, wenn SMTP konfiguriert wurde. Das betrifft unter anderem Einladungen, Zuweisungen und Erinnerungen.
+E-Mail-Versand ist möglich, wenn SMTP konfiguriert wurde. Das betrifft unter anderem Einladungen, Zuweisungen und Erinnerungen. Für fachliche Benachrichtigungen werden die vom Benutzer gewählten Zustellkanäle Browser, E-Mail und Push unabhängig voneinander berücksichtigt; ein deaktivierter Kanal erhält keine zusätzliche Zustellung.
 
 Für den produktiven Betrieb sollten Absenderadresse, Basis-URL und SMTP-Zugangsdaten korrekt gesetzt sein. Siehe [Installation und Inbetriebnahme](./installation.md).
 

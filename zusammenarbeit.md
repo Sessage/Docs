@@ -61,6 +61,8 @@ Zuweisungen helfen bei:
 - Teamverantwortung,
 - Automatisierungsregeln.
 
+Die Startseite **Meine zugewiesenen Aufgaben** fasst die Aufgaben aus allen zugänglichen Listen zusammen und sortiert sie nach Fälligkeit. Dabei werden die kanonische Benutzer-ID und hinterlegte E-Mail-Adresse zusammengeführt; gleichlautende Anzeigenamen gelten nicht als Identitätsnachweis. In der mobilen App wird dieselbe Auswertung auch auf dem profilbezogenen Offline-Cache ausgeführt. Wird eine geöffnete Aufgabe verschoben oder die Zuweisung entfernt, aktualisiert sich die Übersicht und verwendet anschließend die Daten der tatsächlichen Zielliste.
+
 ## Beobachten
 
 Beobachten ist sinnvoll, wenn Sie über Änderungen informiert bleiben wollen, ohne selbst Hauptverantwortliche Person zu sein.

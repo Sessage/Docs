@@ -35,6 +35,8 @@ Portfoliofreigaben verwenden dieselben Rollen wie Listen:
 
 Die Portfolio-Rolle wird an die enthaltenen Listen vererbt. Eine davon unabhängige direkte Listenfreigabe bleibt erhalten. Treffen mehrere Freigabequellen zusammen, gilt die jeweils stärkste Rolle.
 
+Auch Verzeichnis- und Direktfreigaben bleiben beim Entfernen einer Portfoliofreigabe erhalten. Wird ein bereits aktives Mitglied erneut eingeladen, behält es seinen bisherigen Zugriff, bis es die neue Einladung annimmt.
+
 Vor einer Portfoliofreigabe prüft Sessage, ob der Portfolio-Owner bei allen enthaltenen Listen Admin ist. So kann ein Portfolio keine Liste weitergeben, für die der Portfolio-Owner selbst keine ausreichende Berechtigung besitzt.
 
 ## Portfolio teilen
@@ -52,6 +54,8 @@ Klicken Sie oben im Portfolio-Dashboard auf **Portfolio teilen**. Im Tab **Per E
 ![Portfolio-Teilen-Dialog im Tab Per E-Mail](/images/enterprise/portfolio-teilen-email.png)
 
 Alternativ erzeugen Sie im Tab **Per Link** einen widerrufbaren Share-Link mit festgelegter Rolle und optionalem Kommentar.
+
+E-Mail-Einladungen und Share-Links sind 30 Tage gültig. Kann eine bereits gespeicherte Einladung vorübergehend nicht per E-Mail versendet werden, zeigt Sessage den gespeicherten Link an, damit kein zweiter, doppelter Einladungsdatensatz erforderlich ist.
 
 ![Portfolio-Teilen-Dialog im Tab Per Link](/images/enterprise/portfolio-teilen-link.png)
 
@@ -74,5 +78,9 @@ Dashboards stellen Listen- oder Portfolioinformationen als KPI-Kacheln, Status- 
 Mit **Widgets anpassen** blenden Sie Bausteine ein oder aus und verändern deren Reihenfolge.
 
 ![Dialog zum Anpassen der Dashboard-Widgets](/images/enterprise/dashboard-widgets.png)
+
+Persönliche Dashboards speichern Name, Listenauswahl, Gruppierung, Sortierung, Filter und Widgetreihenfolge automatisch. Das Portfolio-Dashboard übernimmt Name und Listen fest aus dem Portfolio; Portfolio-Admins können dessen Filter, Gruppierung, Sortierung und Widgets konfigurieren. Mehrere ausgewählte Fälligkeitszeiträume werden als Alternativen kombiniert, beispielsweise **Überfällig oder nächste Woche**.
+
+Dashboard- und Portfolioverwaltung benötigen in der mobilen App eine Online-Verbindung. Verbindungs- und Serverfehler werden angezeigt und können erneut geladen werden, statt als leeres Dashboard interpretiert zu werden.
 
 Typische Einsatzfälle sind Projektportfolios, Bereichsübersichten, Statusberichte und listenübergreifende Arbeitsvorräte.

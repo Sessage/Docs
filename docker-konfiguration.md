@@ -79,7 +79,7 @@ Der Host- und Container-Port dürfen gleich sein, müssen es aber nicht. Wenn `S
 | `JWT_KEY` | kein Standard | Signaturschlüssel für mobile/API-Tokens, mindestens 32 zufällige Bytes. Änderungen melden mobile Clients ab. |
 | `JWT_ISSUER` | `Sessage.Server` | Aussteller der JWTs. |
 | `JWT_AUDIENCE` | `Sessage.App` | Zielgruppe der JWTs. |
-| `JWT_EXPIRES_MINUTES` | `10080` | Gültigkeit eines Mobile-/API-JWTs in Minuten; der Standard entspricht sieben Tagen. |
+| `JWT_EXPIRES_MINUTES` | `10080` | Gültigkeit eines Mobile-/API-JWTs in Minuten; zulässig sind 1 bis 43.200 Minuten, der Standard entspricht sieben Tagen. |
 | `PERSONAL_ACCESS_TOKEN_LIFETIME_DAYS` | `90` | Gültigkeit neu erstellter Personal Access Tokens; zulässig sind 1 bis 365 Tage. |
 | `ALLOW_REGISTRATION` | `false` | Erlaubt oder verbietet die Selbstregistrierung. |
 

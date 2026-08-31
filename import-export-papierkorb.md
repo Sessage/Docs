@@ -14,9 +14,11 @@ Enterprise-Dashboards können zusätzlich als Grundlage für Reporting und liste
 
 ## Papierkorb
 
-Gelöschte Aufgaben und Listen landen im Papierkorb. Dort können sie wiederhergestellt werden, solange sie noch vorhanden sind.
+Gelöschte Aufgaben und Listen landen für 14 Tage im Papierkorb. Der globale Papierkorb zeigt wiederherstellbare Listen und Aufgaben aus noch aktiven Listen. Zusätzlich können gelöschte Aufgaben direkt über die Listenoption **Gelöschte Aufgaben wiederherstellen** zurückgeholt werden. Listen können nur von Listenadministratoren, Aufgaben von Benutzern mit Schreibrecht wiederhergestellt werden.
 
-Der Server besitzt einen Bereinigungsdienst. Löschungen sollten deshalb nicht als dauerhafte Archivierung verstanden werden. Für langfristige Nachweise nutzen Sie Exporte oder eine externe Archivierung.
+Eine wiederhergestellte Aufgabe wird am Ende der Liste und ihrer Kanban-Spalte einsortiert. Existiert ihre frühere Spalte nicht mehr, verwendet Sessage eine passende vorhandene Spalte. Aufgaben in einer gelöschten Liste erscheinen erst wieder separat, nachdem die Liste wiederhergestellt wurde. Abgelaufene Einträge können auch dann nicht mehr wiederhergestellt werden, wenn der tägliche Bereinigungslauf noch nicht stattgefunden hat.
+
+Der Server besitzt einen täglichen Bereinigungsdienst. Löschungen sollten deshalb nicht als dauerhafte Archivierung verstanden werden. Für langfristige Nachweise nutzen Sie Exporte oder eine externe Archivierung.
 
 ## Enterprise-Prozesseingänge
 

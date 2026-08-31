@@ -483,7 +483,24 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -1090,6 +1107,103 @@
                   "items": {
                     "type": "string"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mobile/lists/{listId}/view-preference": {
+      "get": {
+        "tags": [
+          "MobileSync"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MobileSync"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListViewPreferenceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListViewPreferenceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListViewPreferenceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListViewPreferenceEntity"
                 }
               }
             }
@@ -1911,6 +2025,48 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/mobile/lists/{listId}/transfer-ownership": {
+      "post": {
+        "tags": [
+          "MobileSync"
+        ],
+        "parameters": [
+          {
+            "name": "listId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferListOwnershipRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferListOwnershipRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferListOwnershipRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -4382,6 +4538,44 @@
         }
       }
     },
+    "/api/mobile/trash/tasks": {
+      "get": {
+        "tags": [
+          "MobileSync"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeletedTaskTrashItem"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeletedTaskTrashItem"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeletedTaskTrashItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/mobile/trash/lists/{listId}/tasks": {
       "get": {
         "tags": [
@@ -4581,6 +4775,29 @@
       "post": {
         "tags": [
           "MobileSync"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/mobile/notifications/{notificationId}/mark-read": {
+      "post": {
+        "tags": [
+          "MobileSync"
+        ],
+        "parameters": [
+          {
+            "name": "notificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -6047,6 +6264,32 @@
         },
         "additionalProperties": false
       },
+      "DeletedTaskTrashItem": {
+        "type": "object",
+        "properties": {
+          "taskId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "listId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "taskTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "listName": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletedAtUtc": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "EmailImportConnectionTestResult": {
         "type": "object",
         "properties": {
@@ -6401,6 +6644,72 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ListViewPreferenceEntity": {
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "listId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "list": {
+            "$ref": "#/components/schemas/TodoListEntity"
+          },
+          "lastView": {
+            "$ref": "#/components/schemas/DefaultListView"
+          },
+          "listSortMode": {
+            "$ref": "#/components/schemas/ListSortMode"
+          },
+          "kanbanSortMode": {
+            "$ref": "#/components/schemas/ListSortMode"
+          },
+          "tableColumnOrder": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "tableHiddenColumns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "updatedAtUtc": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListViewPreferenceRequest": {
+        "type": "object",
+        "properties": {
+          "view": {
+            "$ref": "#/components/schemas/DefaultListView"
+          },
+          "listSortMode": {
+            "$ref": "#/components/schemas/ListSortMode"
+          },
+          "kanbanSortMode": {
+            "$ref": "#/components/schemas/ListSortMode"
+          }
+        },
+        "additionalProperties": false
       },
       "LoginRequest": {
         "type": "object",
@@ -8200,6 +8509,16 @@
           "lastUsedAtUtc": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransferListOwnershipRequest": {
+        "type": "object",
+        "properties": {
+          "newOwnerUserIdOrEmail": {
+            "type": "string",
             "nullable": true
           }
         },
