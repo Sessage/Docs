@@ -42,6 +42,8 @@ Der mobile Papierkorb lädt gelöschte Listen über `GET /api/mobile/trash/lists
 
 Enterprise ergänzt mobile Endpunkte und Oberflächen insbesondere für Portfolios, Dashboards, Formulare einschließlich benutzerdefinierter Felder, Automatisierung, E-Mail-Import und Verzeichnisfreigaben. Zugriffe auf benutzerdefinierte Felder benötigen serverseitig `enterprise.forms`; die App blendet die zugehörigen Bereiche ohne diese Capability aus.
 
+Freigabelinks, Vorlagen, Automatisierungen und E-Mail-Import-Konfigurationen werden servergebunden geladen. Offline-, Authentifizierungs-, Berechtigungs- und Serverfehler werden in diesen Bereichen nicht als leerer Bestand oder deaktivierte Konfiguration interpretiert. Beim vorübergehenden Fehlschlag einer erneuten Freigabeabfrage bleiben bereits geladene Links und Teilnehmer sichtbar und werden zusammen mit der Fehlermeldung angezeigt.
+
 Dashboard- und Portfolio-Endpunkte arbeiten servergebunden und benötigen eine Online-Verbindung. Der Client unterscheidet dabei einen tatsächlich leeren Bestand von Authentifizierungs-, Berechtigungs- und Serverfehlern. Portfolio-Dashboards übernehmen ihre Listen serverseitig aus der Portfoliozuordnung; nur Portfolio-Owner und -Admins dürfen ihre gespeicherte Darstellung ändern.
 
 Die bevorzugte Listenansicht und die getrennten Sortierungen für Listen- und Kanban-Ansicht werden über `GET` und `PUT /api/mobile/lists/{listId}/view-preference` synchronisiert. Die App speichert diese Präferenz zusätzlich profilgetrennt in SQLite und legt Offline-Änderungen in die dauerhafte Sync-Warteschlange.
@@ -80,12 +82,13 @@ Der Konflikt bleibt im Bereich **Synchronisationsänderungen** sichtbar. Dort ka
 
 Neue Offline-Entitäten und Anhänge verwenden stabile IDs. Wiederholte Übertragungen nach einem Verbindungsabbruch sind dadurch idempotent und erzeugen keine Duplikate.
 
-Ist der Suchendpunkt nicht erreichbar, durchsucht die App die zum aktiven Profil gehörenden zwischengespeicherten Listen, Aufgabenbeschreibungen und Teilschritte. Offline-Treffer werden in der Oberfläche als Cache-Stand gekennzeichnet; ein Transportfehler erscheint daher nicht fälschlich als leeres Online-Suchergebnis.
+Ist der Suchendpunkt wegen eines Transportfehlers, Timeouts oder vorübergehenden Serverfehlers nicht erreichbar, durchsucht die App die zum aktiven Profil gehörenden zwischengespeicherten Listen, Aufgabenbeschreibungen und Teilschritte. Offline-Treffer werden in der Oberfläche als Cache-Stand gekennzeichnet; ein Transportfehler erscheint daher nicht fälschlich als leeres Online-Suchergebnis. Authentifizierungs-, Berechtigungs- und ungültige Anfragen werden dagegen ausdrücklich angezeigt und dürfen keinen möglicherweise veralteten Cache freigeben.
 
 Normale Listen können offline angelegt und bearbeitet werden. Das Erzeugen einer Liste aus einer
 Vorlage erfordert dagegen eine aktive Serververbindung, weil Vorlagen bewusst nicht im normalen
 Workspace-Cache gespeichert werden. Die App meldet diesen Zustand, statt ersatzweise eine leere
-Liste anzulegen.
+Liste anzulegen. Auch ein Fehler beim Laden der Vorlagenauswahl wird ausdrücklich angezeigt und
+nicht als tatsächlich leere Vorlagenliste behandelt.
 
 Beim Offline-Anlegen von Listen und Gruppen werden stabile IDs und die lokale Navigationsposition
 gespeichert. Nur vorübergehende Transport- und Serverfehler verbleiben für einen späteren Versuch

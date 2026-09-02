@@ -75,6 +75,7 @@ Eine Regel kann mehrere Aktionen ausführen:
 - Aufgabe als fertig markieren
 - Aufgabe als offen markieren
 - Aufgabe in eine Spalte verschieben
+- Aufgabe in eine andere Liste verschieben
 - Bearbeiter setzen
 - Bearbeiter entfernen
 - Genehmiger setzen
@@ -82,6 +83,8 @@ Eine Regel kann mehrere Aktionen ausführen:
 - Benachrichtigung senden
 - Ausgewählte Felder per POST an einen Webhook senden
 - Wichtigkeit setzen
+
+`In Liste verschieben` setzt die Aufgabe in die erste Spalte der gewählten Zielliste und berechnet daraus den Offen-/Erledigt-Status neu. Die Zielliste muss auch für den Eigentümer der Quellliste beschreibbar sein. Der Listenwechsel beendet die Aktionskette der Quellliste; passende Folgeautomatisierungen laufen anschließend in der Zielliste weiter. Dadurch können Regeln Aufgaben sicher zwischen Prozessen weiterreichen, ohne Berechtigungen zwischen Listen zu umgehen.
 
 ## Kartenfarbe per Regel setzen
 

@@ -59,7 +59,7 @@ Ansicht sowie Listen- und Kanban-Sortierung werden pro Benutzer und Liste gespei
 
 Der Aufgabenfilter gilt einheitlich für Liste, Kanban, Tabelle und Kalender. Optionen innerhalb derselben Gruppe – beispielsweise mehrere Fälligkeitszeiträume, Labels oder **ohne Mitglieder** zusammen mit ausgewählten Mitgliedern – werden als Alternativen behandelt. Unterschiedliche Filtergruppen werden miteinander kombiniert. Nicht mehr vorhandene Labels oder Teilnehmer werden bei einer Aktualisierung aus dem Filter entfernt.
 
-Die Mehrfachauswahl steht Benutzern mit Schreibrecht in Liste, Kanban und Tabelle zur Verfügung. Beim Filtern bleiben nur noch sichtbare Aufgaben ausgewählt. Ein Ansichtswechsel beendet die Auswahl; die bereits aktive Ansicht erneut anzuklicken verändert dagegen weder Auswahl noch geöffneten Task.
+Die Mehrfachauswahl steht Benutzern mit Schreibrecht in Liste, Kanban und Tabelle zur Verfügung. Die Aktion **Verschieben** kann die gewählten Aufgaben entweder in eine andere Spalte derselben Liste oder in eine beschreibbare andere Liste verschieben. Für die Zielliste wird anschließend eine ihrer Spalten gewählt; deren Konfiguration bestimmt auch den Offen-/Erledigt-Status. Beim Filtern bleiben nur noch sichtbare Aufgaben ausgewählt. Ein Ansichtswechsel beendet die Auswahl; die bereits aktive Ansicht erneut anzuklicken verändert dagegen weder Auswahl noch geöffneten Task.
 
 ## Suche
 

@@ -25,6 +25,8 @@ Personal access token errors are returned as structured API responses, allowing 
 
 Dashboard and portfolio endpoints require an online connection. The client distinguishes an actually empty result from authentication, authorization, and server failures. Portfolio dashboards derive their list selection from the server-side portfolio membership; only portfolio owners and administrators may change the saved presentation.
 
+Share links, templates, automations, and email-import configuration are loaded from the server. Offline, authentication, authorization, and server failures are not interpreted as an empty result or a disabled configuration. If refreshing sharing data fails temporarily, previously loaded links and participants remain visible together with the error.
+
 Mobile administration likewise distinguishes empty user and audit lists from network, authentication, and server failures. The server prevents administrators from deleting their own account or removing their own administrator role, and reports a role change as successful only after Identity has persisted it.
 
 The preferred list view and the independent list and Kanban sort modes are synchronized through `GET` and `PUT /api/mobile/lists/{listId}/view-preference`. The app also stores the preference in profile-partitioned SQLite and queues offline changes in the durable synchronization outbox.
@@ -45,11 +47,12 @@ Lists and tasks carry a server content version and synchronization token. If ano
 
 New offline entities and attachments use stable identifiers, making retries after reconnects idempotent instead of creating duplicates.
 
-If the search endpoint is unavailable, the app searches the cached lists, task descriptions and steps belonging to the active profile. Offline results are identified as cached data in the UI, so a transport failure is not presented as an empty online result.
+If the search endpoint is unavailable because of a transport error, timeout, or temporary server failure, the app searches the cached lists, task descriptions and steps belonging to the active profile. Offline results are identified as cached data in the UI, so a transport failure is not presented as an empty online result. Authentication, authorization, and invalid-request failures are surfaced instead and must never expose potentially stale cached results.
 
 Regular lists can be created and edited offline. Creating a list from a template requires an active
 server connection because templates are deliberately excluded from the normal workspace cache. The
-app reports this condition instead of silently creating an empty replacement list.
+app reports this condition instead of silently creating an empty replacement list. A failure while
+loading the template picker is also surfaced instead of being presented as an actually empty catalog.
 
 Lists and groups created offline retain stable identifiers and their local navigation position. Only
 temporary transport and server failures remain in the outbox for a later retry. Permanent responses,

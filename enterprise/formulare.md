@@ -35,9 +35,12 @@ Ein Formular kann enthalten:
 ## Validierungen
 
 Unterstützt werden unter anderem Zahl, Ganzzahl, E-Mail, IBAN, Datumsgrenzen, Mindest- und Maximallänge sowie reguläre Ausdrücke.
+Pflicht-Checkboxen müssen aktiv bestätigt werden; bei Pflicht-Mehrfachauswahlen muss mindestens eine Option gewählt sein. Spalten, Labels, Teilnehmer und Auswahlwerte werden bei der Übermittlung erneut auf dem Server gegen die aktuelle Liste geprüft. Manipulierte oder inzwischen ungültige Werte erzeugen daher keine Aufgabe mit stillschweigend ersetzten Daten.
 
 ## Sicherheit
 
-Öffentliche Formulare verwenden Schutzmechanismen wie Submission-Keys, Honeypot-Felder und Rate-Limits für Passwortversuche. Erlaubte Anhangstypen sollten bewusst eingeschränkt werden.
+Öffentliche Formulare verwenden Schutzmechanismen wie Submission-Keys, Honeypot-Felder und getrennte Rate-Limits für Passwortversuche und Übermittlungen. Wiederholte Übertragungen desselben Submission-Keys sind idempotent und erzeugen keine zweite Aufgabe. Erlaubte Anhangstypen sollten bewusst eingeschränkt werden.
+
+Die Formularverwaltung in der mobilen App verwendet dieselben Serverprüfungen und benötigt eine aktive Verbindung. Offline- oder Lizenzfehler werden als Fehler angezeigt und nicht als leere Formularliste interpretiert. Öffentliche Formulare werden weiterhin über ihren Weblink geöffnet.
 
 Formulare können mit [Automatisierungen](../automatisierung.md) und dem [E-Mail-Import](./email-import.md) kombiniert werden, um unterschiedliche Eingänge in einem gemeinsamen Listenprozess zu verarbeiten.
