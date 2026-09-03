@@ -2431,6 +2431,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -5569,7 +5577,6 @@
         "tags": [
           "ProfilePicture"
         ],
-        "summary": "Gibt das Profilbild eines Benutzers zurück.\r\nDas Bild ist öffentlich zugänglich (kein Auth erforderlich).",
         "parameters": [
           {
             "name": "userId",
@@ -5592,7 +5599,6 @@
         "tags": [
           "ProfilePicture"
         ],
-        "summary": "Lädt ein neues Profilbild hoch.\r\nErwartet einen JSON-Body mit dem Feld \"imageData\" als Data-URL (base64).\r\nDas Bild muss bereits auf 128×128 px zugeschnitten sein (vom Client).",
         "requestBody": {
           "content": {
             "application/json": {
@@ -5622,7 +5628,6 @@
         "tags": [
           "ProfilePicture"
         ],
-        "summary": "Löscht das Profilbild des angemeldeten Benutzers.",
         "responses": {
           "200": {
             "description": "OK"
@@ -6726,8 +6731,7 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false,
-        "description": "E-Mail-Adresse bei lokalem Login, konfigurierter LDAP-/AD-Anmeldename wenn UseAd=true."
+        "additionalProperties": false
       },
       "LoginResponse": {
         "type": "object",
@@ -7409,7 +7413,8 @@
           12,
           13,
           14,
-          15
+          15,
+          16
         ],
         "type": "integer",
         "format": "int32"

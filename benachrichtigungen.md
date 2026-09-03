@@ -30,7 +30,7 @@ Aktivieren Sie Push in der App unter **Konto → Benachrichtigungen**. Dort ents
 - **Anonym:** Es erscheint nur „Eine Benachrichtigung von Sessage ist eingegangen“.
 - **Mit Inhalt:** Titel und Benachrichtigungstext werden angezeigt, zum Beispiel „Erinnerung: Test“.
 
-Die Inhaltswahl gilt für alle registrierten Geräte des Kontos. Die eigentliche Gerätefreigabe wird je App-Installation erteilt. Ein Tipp oder Klick auf die Push-Nachricht öffnet das passende Serverprofil und direkt die betroffene Aufgabe. Ist das Profil nicht mehr vorhanden oder die Sitzung abgelaufen, werden keine Daten aus einem anderen Profil geöffnet.
+Die Inhaltswahl gilt für alle registrierten Geräte des Kontos. Die eigentliche Gerätefreigabe wird je App-Installation erteilt. Erneuert das Betriebssystem den Push-Token, registriert die App ihn nur erneut, solange Push für dieses Profil aktiviert ist. Ein Tipp oder Klick auf die Push-Nachricht öffnet das passende Serverprofil und direkt die betroffene Aufgabe. Ist das Profil nicht mehr vorhanden, wurde seine Serveradresse geändert oder ist die Sitzung abgelaufen, werden keine Daten aus einem anderen Profil geöffnet.
 
 Die lokale Sessage-Installation übermittelt an das Relay pseudonymisierte Benutzer- und Gerätekennungen, Plattform, Push-Kanal und das interne Öffnungsziel. Im anonymen Modus werden weder Aufgabentitel noch Benachrichtigungstext an das Relay gesendet. Im Modus **Mit Inhalt** werden genau die für die Systembenachrichtigung benötigten Texte übertragen. Die fachlichen Daten bleiben weiterhin auf der lokalen Installation.
 

@@ -29,7 +29,7 @@ Die Suche verwendet die konfigurierten LDAP-/AD-Attribute und findet:
 - einzelne Verzeichnisbenutzer über Anzeigename, E-Mail, Identitäts- oder Anmeldeattribute,
 - Verzeichnisgruppen über Namen und Anzeigenamen.
 
-Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Die Freigabe wird persistent gespeichert. Bereits bekannte AD-Benutzer erhalten die Berechtigung unmittelbar; ansonsten wird sie bei der nächsten AD-Anmeldung des Benutzers wirksam.
+Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Die Freigabe wird persistent gespeichert. Bereits durch eine erfolgreiche AD-Anmeldung verknüpfte Benutzer erhalten die Berechtigung unmittelbar; ansonsten wird sie bei der nächsten AD-Anmeldung des Benutzers wirksam. Eine bloße Übereinstimmung der E-Mail-Adresse eines lokalen Kontos erzeugt aus Sicherheitsgründen keine Verzeichnisidentität.
 
 ## Gruppenmitgliedschaften
 

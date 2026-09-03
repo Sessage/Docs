@@ -51,6 +51,8 @@ Die in Swagger dargestellten Models werden aus den .NET-Typen und den XML-Kommen
 
 Die mit dieser Dokumentation veröffentlichte statische Fassung ist unter [`/openapi/sessage-v1.json`](/openapi/sessage-v1.json) verfügbar. Sie beschreibt die gemeinsame API-Oberfläche, enthält aber weder Enterprise-Implementierungscode noch Zugangsdaten oder Serverkonfigurationen.
 
+Die Release-Validierung erzeugt diese Datei erneut und bricht ab, falls das eingecheckte Dokument von den Controller-Verträgen abweicht. Änderungen an öffentlichen Routen, Parametern oder DTOs müssen daher zusammen mit der aktualisierten OpenAPI-Datei eingecheckt werden (`npm run docs:openapi`).
+
 ## Authentifizierung mit einem JWT
 
 Die meisten Endpunkte erfordern eine Anmeldung. Ein JWT kann direkt über Swagger angefordert werden:
