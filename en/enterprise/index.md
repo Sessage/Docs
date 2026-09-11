@@ -5,14 +5,14 @@ Sessage Enterprise uses the same task and collaboration foundation as Community 
 ## Additional modules
 
 - **Portfolios:** group multiple lists, share them together and inherit roles.
-- **Dashboards:** key metrics, charts and task overviews across lists.
+- **Dashboards:** key metrics, charts, calendar, cross-list timeline and an interactive Eisenhower priority matrix.
 - **Forms:** define custom list fields and create internal or public intake forms with validation and attachments.
 - **Email intake:** monitor an IMAP mailbox and create tasks from new messages.
 - **Automations:** react to task events, evaluate conditions and execute actions.
 - **Webhooks:** send signed events to external systems.
 - **Directory sharing:** grant list or portfolio access to AD users and groups.
 
-![Portfolio dashboard with metrics, charts and tasks](/images/enterprise/portfolio-dashboard.png)
+![Portfolio dashboard with an interactive Eisenhower priority matrix](/images/enterprise/portfolio-prioritaeten-matrix.png)
 
 ## A typical workflow
 

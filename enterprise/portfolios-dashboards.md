@@ -65,7 +65,7 @@ Im Enterprise-Produkt steht zusätzlich der Tab **Verzeichnis** zur Verfügung. 
 
 ## Dashboards
 
-Dashboards stellen Listen- oder Portfolioinformationen als KPI-Kacheln, Status- und Prioritätsdiagramme sowie Aufgabenübersichten dar. Ein Portfolio besitzt eine dauerhafte Dashboard-Seite, die über seinen Namen in der Navigation geöffnet wird.
+Dashboards stellen Listen- oder Portfolioinformationen als KPI-Kacheln, Status- und Prioritätsdiagramme sowie Aufgabenübersichten dar. Ein Portfolio besitzt eine dauerhafte Dashboard-Seite, die über seinen Namen in der Navigation geöffnet wird. Über die Ansichtsauswahl wechseln Sie zwischen **Aufgaben**, **Kalender**, **Zeitleiste** und **Prioritäten-Matrix**; Filter und Sortierung gelten dabei weiterhin für denselben Datenbestand.
 
 ![Portfolio-Dashboard mit Kennzahlen, Diagrammen und Aufgaben aus den enthaltenen Listen](/images/enterprise/portfolio-dashboard.png)
 
@@ -80,6 +80,48 @@ Mit **Widgets anpassen** blenden Sie Bausteine ein oder aus und verändern deren
 ![Dialog zum Anpassen der Dashboard-Widgets](/images/enterprise/dashboard-widgets.png)
 
 Persönliche Dashboards speichern Name, Listenauswahl, Gruppierung, Sortierung, Filter und Widgetreihenfolge automatisch. Das Portfolio-Dashboard übernimmt Name und Listen fest aus dem Portfolio; Portfolio-Admins können dessen Filter, Gruppierung, Sortierung und Widgets konfigurieren. Mehrere ausgewählte Fälligkeitszeiträume werden als Alternativen kombiniert, beispielsweise **Überfällig oder nächste Woche**.
+
+### Zeitleiste
+
+Die Zeitleiste verbindet die Aufgaben aus allen ausgewählten beziehungsweise im Portfolio enthaltenen Listen. Zeiträume werden als Balken, einzelne Termine als Meilensteine dargestellt. Sie können nach Aufgaben oder Bearbeitern gruppieren, zu **Heute** springen und zwischen Tagen, Wochen und Monaten wechseln.
+
+![Listenübergreifende Dashboard-Zeitleiste im Wochenmaßstab](/images/enterprise/dashboard-zeitleiste.png)
+
+Aufgaben mit Schreibrecht können direkt in der Zeitleiste verschoben, am Anfang oder Ende verlängert und zwischen Zeitraum und Meilenstein umgewandelt werden. Die Dashboard-Ansicht legt keine Aufgabe ohne eindeutige Ursprungsliste neu an und verändert auch nicht deren Reihenfolge. Aufgaben aus nur lesbaren Listen bleiben sichtbar, ihre Termine sind jedoch geschützt.
+
+### Prioritäten-Matrix
+
+Die Eisenhower-Matrix ordnet ausschließlich offene Aufgaben nach Wichtigkeit und Fälligkeit ein:
+
+1. **Dringend und wichtig – Sofort erledigen:** wichtig und heute fällig oder überfällig.
+2. **Wichtig, nicht dringend – Einplanen:** wichtig und erst später fällig oder ohne Fälligkeit.
+3. **Dringend, nicht wichtig – Delegieren:** nicht wichtig und heute fällig oder überfällig.
+4. **Nicht dringend und nicht wichtig – Eliminieren:** nicht wichtig und später fällig oder ohne Fälligkeit.
+
+![Interaktive Prioritäten-Matrix eines Dashboards](/images/enterprise/dashboard-prioritaeten-matrix.png)
+
+Ziehen Sie eine Aufgabe auf einen Quadranten oder wählen Sie die Zielaktion in der Karte. Sessage passt Wichtigkeit und Termin konsistent an:
+
+- **Sofort erledigen** setzt den Stern und bei Bedarf die Fälligkeit auf heute.
+- **Einplanen** setzt den Stern und bei Bedarf die Fälligkeit auf heute plus sieben Tage.
+- **Delegieren** entfernt den Stern und setzt bei Bedarf die Fälligkeit auf heute.
+- **Eliminieren** entfernt Stern, Startdatum und Fälligkeit. Die Aufgabe wird dadurch nicht gelöscht.
+
+Vorhandene passende Termine bleiben erhalten. Falls ein Startdatum nach dem neu gesetzten Fälligkeitsdatum liegen würde, wird es auf einen gültigen Wert korrigiert. Erledigte Aufgaben erscheinen nicht in der Matrix. Beobachter sehen Aufgaben weiterhin, können sie aber weder ziehen noch über die Auswahl verschieben.
+
+Im Portfolio-Dashboard funktioniert dieselbe Matrix für alle enthaltenen Listen. Die Karten zeigen mit **Aus Liste: …** eindeutig ihre Herkunft.
+
+![Prioritäten-Matrix eines Portfolio-Dashboards](/images/enterprise/portfolio-prioritaeten-matrix.png)
+
+Auf schmalen Bildschirmen werden die vier Quadranten untereinander angeordnet. Auswahlfelder bleiben als Alternative zu Drag-and-drop verfügbar.
+
+![Prioritäten-Matrix in der mobilen Darstellung](/images/enterprise/dashboard-prioritaeten-matrix-mobile.png)
+
+### Gemeinsame Aktualisierung
+
+Aufgabenänderungen aus anderen Browsern oder der mobilen App werden in Aufgabenansicht, Kalender, Zeitleiste und Prioritäten-Matrix automatisch übernommen. Während ein Aufgabendialog oder eine lokale Dashboard-Konfiguration gespeichert wird, schützt Sessage den lokalen Bearbeitungsstand und holt zurückgestellte Aktualisierungen anschließend nach.
+
+Ändert ein Portfolio-Admin Filter, Gruppierung, Sortierung oder Widgets, erhalten andere Portfolio-Mitglieder den neuen Stand ebenfalls. Entzogene Listen- oder Portfoliofreigaben verschwinden nach der Aktualisierung aus Navigation und Dashboard.
 
 Dashboard- und Portfolioverwaltung benötigen in der mobilen App eine Online-Verbindung. Verbindungs- und Serverfehler werden angezeigt und können erneut geladen werden, statt als leeres Dashboard interpretiert zu werden.
 

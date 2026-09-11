@@ -11,7 +11,8 @@
 | **Listen und normale Navigationsgruppen**<br><small>strukturieren Listen in persönlichen Arbeitsbereichen und frei benennbaren Gruppen.</small> | ✓ | ✓ |
 | **Aufgaben, Schritte, Kommentare und Anhänge**<br><small>erfassen Arbeit mit Unteraufgaben, Abstimmungen und zugehörigen Dateien.</small> | ✓ | ✓ |
 | **Termine, Wichtigkeit und Kartenfarben**<br><small>kennzeichnen Dringlichkeit, Fälligkeit und visuelle Priorisierung einer Aufgabe.</small> | ✓ | ✓ |
-| **Listen-, Kanban-, Tabellen- und Kalenderansicht**<br><small>stellen dieselben Aufgaben passend zum jeweiligen Arbeitsablauf dar.</small> | ✓ | ✓ |
+| **Listen-, Kanban-, Tabellen-, Kalender- und Zeitleistenansicht**<br><small>stellen dieselben Aufgaben passend zum jeweiligen Arbeitsablauf dar.</small> | ✓ | ✓ |
+| **Mein Tag**<br><small>bündelt die persönliche Tagesauswahl listenübergreifend auf Web und Mobile.</small> | ✓ | ✓ |
 | **Labels**<br><small>Ergänzen Aufgaben um farbige Kategorien.</small> | ✓ | ✓ |
 | **Listenvorlagen, Kopieren und Sortierung**<br><small>beschleunigen wiederkehrende Strukturen und organisieren Listeninhalte.</small> | ✓ | ✓ |
 | **Listenfreigabe per E-Mail**<br><small>lädt Personen gezielt als Admin, Mitglied oder Beobachter in eine Liste ein.</small> | ✓ | ✓ |
@@ -25,7 +26,7 @@
 | **AD/LDAP-Anmeldung**<br><small>authentifiziert Benutzer mit vorhandenen Zugangsdaten des Unternehmensverzeichnisses.</small> | ✓ | ✓ |
 | **Portfolios**<br><small>fassen mehrere Listen mit gemeinsamer Mitgliedschaft und vererbten Rollen zusammen.</small> | – | ✓ |
 | **Dauerhaftes Portfolio-Dashboard**<br><small>öffnet über den Portfolionamen eine feste Übersicht aller enthaltenen Listen.</small> | – | ✓ |
-| **Konfigurierbare Dashboards**<br><small>visualisieren Kennzahlen, Statusverteilungen und Aufgabenübersichten.</small> | – | ✓ |
+| **Konfigurierbare Dashboards**<br><small>visualisieren Kennzahlen, Aufgaben, Kalender, Zeitleiste und Eisenhower-Prioritäten-Matrix.</small> | – | ✓ |
 | **Formulare und benutzerdefinierte Felder**<br><small>erweitern Aufgaben um strukturierte Listenfelder und erzeugen Aufgaben aus internen oder öffentlichen Eingabemasken.</small> | – | ✓ |
 | **Automatisierungsregeln**<br><small>führen bei definierten Auslösern und Bedingungen automatisch Aktionen aus.</small> | – | ✓ |
 | **Webhook-Aktionen**<br><small>übermitteln Ereignisse sicher per HTTP oder HTTPS an externe Systeme.</small> | – | ✓ |

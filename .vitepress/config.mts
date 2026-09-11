@@ -10,6 +10,7 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Community-Überblick', link: '/community/' },
     { text: 'Listen und Navigation', link: '/listen-und-navigation' },
     { text: 'Aufgaben bearbeiten', link: '/aufgaben' },
+    { text: 'Mein Tag', link: '/daily-focus' },
     { text: 'Ansichten', link: '/ansichten' },
     { text: 'Zusammenarbeit und Teilen', link: '/zusammenarbeit' },
     { text: 'Labels', link: '/labels-felder-formulare' },

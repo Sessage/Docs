@@ -4,7 +4,7 @@
 
 Rufen Sie Sessage im Browser auf und melden Sie sich mit Ihrem Konto an. Je nach Einrichtung kann das Konto lokal in Sessage verwaltet werden oder über eine Unternehmensanbindung wie Active Directory/LDAP geprüft werden.
 
-Nach der Anmeldung sehen Sie die Hauptnavigation. Dort erreichen Sie Ihre Listen, die globale Aufgabenübersicht, wichtige Aufgaben, Mein Tag, Suche, Papierkorb, Profil und Konto. In Enterprise erscheint zusätzlich der Dashboard-Bereich.
+Nach der Anmeldung sehen Sie die Hauptnavigation. Dort erreichen Sie **Mein Tag**, die globale Aufgabenübersicht, Ihre Listen, Suche, Papierkorb, Profil und Konto. In Enterprise erscheint zusätzlich der Dashboard-Bereich. Wichtige Aufgaben erkennen Sie am Stern und priorisieren sie listenübergreifend in der Prioritäten-Matrix.
 
 ![Hauptnavigation der Community Edition mit Aufgaben, Listen und Kontomenü](/images/community/navigation-uebersicht.png)
 
@@ -40,9 +40,9 @@ Sessage speichert viele Änderungen direkt aus der Detailansicht. Nach dem Schli
 - Kanban: für Arbeit nach Status oder Prozessschritten.
 - Tabelle: für viele Aufgaben auf einmal und in Enterprise zusätzlich für benutzerdefinierte Felder.
 - Kalender: für Termine und zeitliche Planung.
-- Dashboard: für Auswertung, Überblick und Reporting.
+- Zeitleiste: für Zeiträume, Meilensteine und Abhängigkeiten in der Terminplanung.
+- Dashboard: für Auswertung, Überblick und Reporting; Enterprise-Dashboards bieten zusätzlich Kalender, Zeitleiste und Prioritäten-Matrix.
 - Mein Tag: für tägliche Fokussierung.
-- Wichtig: für priorisierte Aufgaben über Listen hinweg.
 - Suche: für schnelles Wiederfinden von Aufgaben und Listen.
 
 

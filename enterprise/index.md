@@ -5,7 +5,7 @@ Die Enterprise Edition erweitert den vollständigen Community-Kern um lizenziert
 ## Zusätzliche Module
 
 - **Portfolios:** verbindliche Zusammenfassung mehrerer Listen mit gemeinsamer Navigation und vererbten Rollen
-- **Dashboards:** KPI-Kacheln, Diagramme und Aufgabenübersichten, einschließlich dauerhafter Portfolio-Dashboards
+- **Dashboards:** KPI-Kacheln, Diagramme, Kalender, Zeitleiste und Prioritäten-Matrix, einschließlich dauerhafter Portfolio-Dashboards
 - **Forms:** benutzerdefinierte Listenfelder sowie interne oder öffentliche Aufgabenerfassung mit Layout, Validierung und Schutzmechanismen
 - **Automatisierung:** Auslöser, Bedingungen, Aktionen und abgesicherte Webhooks
 - **E-Mail-Import:** Übernahme von Nachrichten aus IMAP-Postfächern in Listen

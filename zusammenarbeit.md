@@ -10,6 +10,19 @@ Sessage unterscheidet Listenrollen:
 
 Die konkrete Sichtbarkeit und Bearbeitbarkeit richtet sich nach Rolle und Listenberechtigung.
 
+## Gemeinsames Arbeiten in Echtzeit
+
+Änderungen an freigegebenen Listen werden über eine geschützte Echtzeitverbindung verteilt. Das umfasst Aufgaben, Spalten, Labels, Kommentare, Anhänge und relevante Listenänderungen. Aktualisiert eine andere Person eine Aufgabe, erscheint der bestätigte Stand ohne manuelles Neuladen in:
+
+- Liste, Kanban, Tabelle, Kalender und Zeitleiste,
+- **Aufgaben** und **Mein Tag**,
+- persönlichen Dashboards,
+- Portfolio-Dashboards einschließlich Zeitleiste und Prioritäten-Matrix.
+
+Die Verbindung abonniert nur Listen, für die das angemeldete Konto Leserechte besitzt. Nach einem Verbindungsabbruch stellt Sessage die Verbindung und die erforderlichen Abonnements automatisch wieder her. Die mobile App verwendet dabei stets das aktuelle Zugriffstoken des aktiven Profils.
+
+Ein geöffneter Aufgabendialog überschreibt keine noch nicht gespeicherten Eingaben. Sobald der lokale Speichervorgang abgeschlossen oder der Dialog geschlossen ist, wird ein zurückgestellter externer Stand nachgeladen. Wird eine Freigabe entzogen oder die Eigentümerschaft übertragen, aktualisieren sich Navigation und listenübergreifende Ansichten ebenfalls.
+
 ## Liste teilen
 
 Eine Liste kann mit anderen Personen geteilt werden. Dafür gibt es Einladungen und Share-Links. Einladungen können angenommen oder widerrufen werden.
@@ -61,7 +74,7 @@ Zuweisungen helfen bei:
 - Teamverantwortung,
 - Automatisierungsregeln.
 
-Die Startseite **Meine zugewiesenen Aufgaben** fasst die Aufgaben aus allen zugänglichen Listen zusammen und sortiert sie nach Fälligkeit. Dabei werden die kanonische Benutzer-ID und hinterlegte E-Mail-Adresse zusammengeführt; gleichlautende Anzeigenamen gelten nicht als Identitätsnachweis. In der mobilen App wird dieselbe Auswertung auch auf dem profilbezogenen Offline-Cache ausgeführt. Wird eine geöffnete Aufgabe verschoben oder die Zuweisung entfernt, aktualisiert sich die Übersicht und verwendet anschließend die Daten der tatsächlichen Zielliste.
+Die Startseite **Meine zugewiesenen Aufgaben** fasst die Aufgaben aus allen zugänglichen Listen zusammen und sortiert sie nach Fälligkeit. **Aus Liste: …** kennzeichnet die Herkunft. Dabei werden die kanonische Benutzer-ID und hinterlegte E-Mail-Adresse zusammengeführt; gleichlautende Anzeigenamen gelten nicht als Identitätsnachweis. In der mobilen App wird dieselbe Auswertung auch auf dem profilbezogenen Offline-Cache ausgeführt. Wird eine geöffnete Aufgabe verschoben oder die Zuweisung entfernt, aktualisiert sich die Übersicht und verwendet anschließend die Daten der tatsächlichen Zielliste.
 
 ## Beobachten
 

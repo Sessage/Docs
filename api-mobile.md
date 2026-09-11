@@ -30,6 +30,7 @@ Die API unterstützt mobile Szenarien für:
 - Teilen,
 - Portfolios (Enterprise),
 - Dashboards,
+- Dashboard-Zeitleiste und Prioritäten-Matrix,
 - Papierkorb,
 - Benachrichtigungen,
 - Enterprise-Push-Nachrichten auf Android, iOS und Windows,
@@ -44,7 +45,7 @@ Enterprise ergänzt mobile Endpunkte und Oberflächen insbesondere für Portfoli
 
 Freigabelinks, Vorlagen, Automatisierungen und E-Mail-Import-Konfigurationen werden servergebunden geladen. Offline-, Authentifizierungs-, Berechtigungs- und Serverfehler werden in diesen Bereichen nicht als leerer Bestand oder deaktivierte Konfiguration interpretiert. Beim vorübergehenden Fehlschlag einer erneuten Freigabeabfrage bleiben bereits geladene Links und Teilnehmer sichtbar und werden zusammen mit der Fehlermeldung angezeigt.
 
-Dashboard- und Portfolio-Endpunkte arbeiten servergebunden und benötigen eine Online-Verbindung. Der Client unterscheidet dabei einen tatsächlich leeren Bestand von Authentifizierungs-, Berechtigungs- und Serverfehlern. Portfolio-Dashboards übernehmen ihre Listen serverseitig aus der Portfoliozuordnung; nur Portfolio-Owner und -Admins dürfen ihre gespeicherte Darstellung ändern.
+Dashboard- und Portfolio-Endpunkte arbeiten servergebunden und benötigen eine Online-Verbindung. Der Client unterscheidet dabei einen tatsächlich leeren Bestand von Authentifizierungs-, Berechtigungs- und Serverfehlern. Portfolio-Dashboards übernehmen ihre Listen serverseitig aus der Portfoliozuordnung; nur Portfolio-Owner und -Admins dürfen ihre gespeicherte Darstellung ändern. Aufgabenänderungen werden über den Hub in Aufgaben, Mein Tag, Dashboards und Portfolio-Dashboards übernommen. Bei einer Wiederverbindung liest die mobile App das aktuelle Token des aktiven Profils erneut ein.
 
 Die bevorzugte Listenansicht und die getrennten Sortierungen für Listen- und Kanban-Ansicht werden über `GET` und `PUT /api/mobile/lists/{listId}/view-preference` synchronisiert. Die App speichert diese Präferenz zusätzlich profilgetrennt in SQLite und legt Offline-Änderungen in die dauerhafte Sync-Warteschlange.
 

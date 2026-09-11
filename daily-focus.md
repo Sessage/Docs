@@ -1,72 +1,48 @@
 # Mein Tag: persönliche Tagesplanung
 
-## Bedienung
+**Mein Tag** bündelt Ihre persönliche Auswahl aus allen zugänglichen Listen. Aufgaben bleiben in ihrer Ursprungsliste und behalten dort Zuständigkeit, Termine und Freigaben.
 
-- **Mein Tag** steht in der Navigation von Web und Mobile, direkt vor **Aufgaben**.
-- Unter **Aufgaben / Meine zugewiesenen Aufgaben** und in Listenansichten besitzt
-  jede Aufgabenkarte eine Schaltfläche zum Hinzufügen oder Entfernen aus Mein Tag.
-  Der Aufgabendialog bietet dieselbe Aktion, auch bei schreibgeschützten Listen.
-- **Mehrfachauswahl** auf der Aufgaben- und Mein-Tag-Seite ermöglicht die Auswahl
-  über mehrere Ursprungslisten hinweg. In der Aktionsleiste stehen **Zu Mein Tag
-  hinzufügen** und **Aus Mein Tag entfernen** bereit. Die gemeinsame Aktionsleiste
-  bietet diese beiden Aktionen auch in Listen-, Tabellen- und Kanbanansichten.
-- Vorschläge priorisieren überfällige, heute fällige und wichtige offene Aufgaben.
-  Weitere Aufgaben können über den Suchbereich ausgewählt werden. 3 bis 7 Aufgaben
-  werden empfohlen, mehr sind erlaubt. Pro Mehrfachänderung sind maximal 500 möglich.
+![Mein Tag mit ausgewählter Aufgabe und sichtbarer Listenherkunft](/images/community/mein-tag.png)
 
-## Synchronisierung und Fehlerverhalten
+Unter jedem Aufgabentitel zeigt **Aus Liste: …** die Herkunft an. Das Sonnensymbol fügt eine einzelne Aufgabe zum Tagesplan hinzu oder entfernt sie wieder; der Stern markiert weiterhin die Wichtigkeit.
 
-`DailyFocusClient` hält einen gemeinsamen bestätigten Zustand pro angemeldeter
-Sitzung. Einzelaktionen, Mehrfachauswahl und Mein Tag aktualisieren sich nach einem
-erfolgreichen Speichervorgang unmittelbar. Ein einziger `DailyFocusSync` pro Layout
-prüft den Server alle zehn Sekunden und beim Zurückkehren oder Wiederverbinden.
-Die Hintergrundabfrage lädt nur den Tagesplan; die Mein-Tag-Seite lädt zusätzlich
-betroffene Listen, ohne einen geöffneten Aufgabendialog neu zu initialisieren.
+## Aufgaben für heute auswählen
 
-Eine Serververbindung ist erforderlich. Fehler werden sichtbar gemeldet; die
-Mehrfachauswahl bleibt für einen erneuten Versuch erhalten. Fehlgeschlagene Aktionen
-werden nicht als erfolgreich dargestellt. Ein Profil-/Serverwechsel verwirft den
-vorherigen Zustand. Antworten aus einer vorherigen Sitzung werden nicht übernommen.
+- **Vorschläge für heute** priorisiert offene, überfällige, heute fällige und wichtige Aufgaben.
+- **Aufgaben auswählen** durchsucht die zugänglichen Ursprungslisten.
+- **Mehrfachauswahl** fügt mehrere Aufgaben gemeinsam hinzu oder entfernt sie gemeinsam.
+- Die Auswahlaktionen stehen auch in **Aufgaben** sowie in Listen-, Tabellen-, Kanban- und Zeitleistenansichten zur Verfügung.
 
-Die erste Verwendung legt die gemeinsame Kontozeitzone anhand des Geräts fest.
-Weitere Geräte übernehmen diese Zeitzone. Das Datum und der nächste Tageswechsel
-kommen vom Server; Sommerzeit und Mitternachtswechsel werden berücksichtigt. Alte
-Auswahlen verändern keine Aufgaben. Verspätete Anfragen für einen anderen Tag werden
-nicht angewendet; die Oberfläche fordert dann eine erneute Auswahl an.
+Sessage empfiehlt 3 bis 7 Aufgaben, erlaubt aber eine größere persönliche Auswahl. Pro Mehrfachänderung können bis zu 500 Aufgaben verarbeitet werden.
 
-Bestehende lokale Auswahlen werden für denselben Tag übernommen, sofern die Aufgaben
-noch zugänglich sind. Danach wird der alte lokale Eintrag entfernt.
+![Listenübergreifende Ansicht Aufgaben mit Mein-Tag-Symbol und Listenherkunft](/images/community/aufgaben.png)
 
-## API und Datenbank
+## Was sich täglich ändert
+
+Die Auswahl gilt für das angezeigte lokale Kalenderdatum. Am nächsten Tag beginnt **Mein Tag** leer; die Aufgaben selbst bleiben unverändert in ihren Listen. Das Datum und der Tageswechsel berücksichtigen die im Konto gespeicherte Zeitzone einschließlich Sommerzeit.
+
+Beim ersten Einsatz übernimmt Sessage die Gerätezeitzone für das Konto. Weitere Geräte verwenden anschließend dieselbe Einstellung. Verspätete Antworten eines vorherigen Tages werden nicht auf den neuen Tagesplan übertragen.
+
+## Zusammenarbeit und Synchronisierung
+
+Ändert eine andere Person eine freigegebene Aufgabe, aktualisieren sich **Mein Tag** und **Aufgaben** automatisch. Das gilt auch für Umbenennen, Termine, Wichtigkeit, Kommentare, Anhänge, Verschieben und Löschen. Ein geöffneter Aufgabendialog schützt nicht gespeicherte Eingaben und übernimmt externe Änderungen erst, wenn dadurch kein lokaler Entwurf überschrieben wird.
+
+Ihre Mein-Tag-Auswahl wird kontoübergreifend zwischen Web und Mobile synchronisiert. Nach einer unterbrochenen Verbindung wird der bestätigte Serverstand erneut geladen. Fehlgeschlagene Aktionen bleiben sichtbar und können wiederholt werden; eine Mehrfachauswahl wird dabei nicht vorschnell verworfen.
+
+Wird Ihnen der Zugriff auf eine Liste entzogen oder eine Aufgabe gelöscht, verschwindet die Aufgabe aus dem Tagesplan. Bei einer nur lesbaren Liste dürfen Sie die persönliche Mein-Tag-Auswahl weiterhin ändern, nicht jedoch die Aufgabe selbst.
+
+## Mobile Darstellung
+
+Auf Smartphones werden die Aktionsschaltflächen umgebrochen und die Karten einspaltig dargestellt. Über **Menü** öffnen Sie die Navigation; **Mein Tag** und **Aufgaben** verwenden dieselben Daten und Berechtigungen wie die Weboberfläche.
+
+![Mein Tag auf einem schmalen mobilen Bildschirm](/images/community/mein-tag-mobile.png)
+
+![Zugewiesene Aufgaben mit Listenherkunft in der mobilen Darstellung](/images/community/aufgaben-mobile.png)
+
+## API
 
 - `GET /api/my-day?timeZoneId=Europe%2FBerlin`
 - `PUT /api/my-day/tasks/{taskId}` mit `date` (YYYY-MM-DD) und `selected`
 - `PUT /api/my-day/tasks` mit `date`, `selected` und `taskIds` (1–500 IDs)
 
-Der Benutzer wird ausschließlich aus der Anmeldung bestimmt. Jede Anfrage prüft die
-Leserechte auf alle betroffenen Aufgaben. Mehrfachänderungen sind atomar und
-idempotent: Unzugängliche Aufgaben verhindern den gesamten Vorgang. Änderungen
-verschiedener Aufgaben überschreiben sich nicht. Gelöschte Aufgaben oder entzogene
-Freigaben verschwinden aus dem Tagesplan.
-
-Die Migration `20260906120000_AddDailyFocus` erstellt `DailyFocusPreferences` und
-`DailyFocusSelections`. Sie wird über den vorhandenen Migrationslauf beim Start des
-aktualisierten Servers angewendet. Server und Clients gemeinsam aktualisieren.
-Diese Entwicklung führt keine Migration auf einer bestehenden Kundendatenbank aus.
-
-## Release-Prüfung
-
-```
-npm --prefix Community run tw:build
-dotnet test TodoSuite.Server.Tests/TodoSuite.Server.Tests.csproj --no-restore --disable-build-servers -m:1 --filter "FullyQualifiedName~DailyFocus|FullyQualifiedName~LocalizationResourceTests"
-node --test --test-isolation=none tools/daily-focus.test.mjs
-dotnet run --project tools/DailyFocusUiTests/DailyFocusUiTests.csproj --no-restore --disable-build-servers -p:BuildInParallel=false
-```
-
-Der isolierte Browser-Test nutzt die echten Webkomponenten, künstliche Benutzer und
-eine InMemory-Datenbank. Er prüft Navigation, Kartenaktionen, Dialog, Mehrfachauswahl,
-zweiten Gerätekontext, Kontotrennung, Fehler/Wiederholung und schmale Bildschirme.
-Die Servertests prüfen Berechtigungen, Batch-Grenzen, Tageswechsel, Sommerzeit und
-das PostgreSQL-Modell samt generiertem Migrations-SQL. Eine Migration gegen eine
-laufende PostgreSQL-Instanz und native iOS-/Android-Gerätetests sind separate
-Releaseprüfungen auf den entsprechenden Plattformen.
+Der Benutzer wird ausschließlich aus der Anmeldung bestimmt. Jede Anfrage prüft die Leserechte auf alle betroffenen Aufgaben. Mehrfachänderungen sind atomar und idempotent: Ist eine Aufgabe nicht zugänglich, wird keine Aufgabe aus diesem Auftrag verändert.

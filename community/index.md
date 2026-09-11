@@ -8,7 +8,8 @@ Die Enterprise Edition verwendet denselben Kern. Alle auf dieser Seite genannten
 
 - Listen, normale Navigationsgruppen, Vorlagen und persönliche Sortierung
 - Aufgaben, Schritte, Kommentare, Anhänge, Termine und Wichtigkeit
-- Listen-, Kanban-, Tabellen- und Kalenderansicht
+- Listen-, Kanban-, Tabellen-, Kalender- und Zeitleistenansicht
+- persönliche Tagesplanung mit **Mein Tag** und listenübergreifender Mehrfachauswahl
 - Labels
 - Listenfreigaben per E-Mail oder Share-Link mit Rollen
 - Zuweisungen, Beobachter, Benachrichtigungen und Erinnerungen

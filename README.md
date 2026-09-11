@@ -54,6 +54,12 @@ Im Monorepo liegen Screenshots getrennt nach Edition unter `docs/public/images/`
 
 Verwenden Sie ausschließlich anonymisierte Beispieldaten. Zugangsdaten, Share-Link-Tokens, API-Tokens und produktive E-Mail-Adressen dürfen nicht abgebildet werden. Neue Bilder sollten direkt bei dem beschriebenen Arbeitsschritt eingebunden werden und einen aussagekräftigen Alternativtext erhalten.
 
+Aktuelle, anonymisierte Aufnahmen für **Aufgaben**, **Mein Tag**, Aufgabendialog,
+Zeitleiste, Wiederholung, Dashboard und Prioritäten-Matrix erzeugt der isolierte
+Browserlauf aus `tools/DailyFocusUiTests`. Die Ergebnisse werden zunächst neben dem
+Testprogramm abgelegt. Übernehmen Sie nur visuell geprüfte Bilder in die beiden
+öffentlichen Bildordner.
+
 Nach Änderungen an Oberfläche oder Screenshots muss `npm run docs:build` ausgeführt werden. So werden fehlende Bildpfade und fehlerhaftes Markdown frühzeitig erkannt.
 
 ## YouTube-Videos einbetten

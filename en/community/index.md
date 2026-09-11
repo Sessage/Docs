@@ -6,7 +6,8 @@ Sessage Community is the complete open-source foundation for tasks and collabora
 
 - lists with columns and labels;
 - tasks with descriptions, subtasks, comments, attachments, dates and assignments;
-- list, Kanban, table and calendar views;
+- list, Kanban, table, calendar and timeline views;
+- a personal **My Day** plan with cross-list selection;
 - email invitations and share links with role-based access;
 - notifications, reminders, import, export and recycle bin;
 - local accounts and AD/LDAP sign-in;

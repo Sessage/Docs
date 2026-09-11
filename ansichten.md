@@ -19,7 +19,7 @@ Aufgaben können per Drag-and-drop zwischen Spalten verschoben werden. Spaltenwe
 
 ![Kanban-Ansicht der Liste Produktlaunch mit den Spalten Backlog, In Arbeit und Erledigt](/images/community/kanban.png)
 
-*Die aktuelle Ansicht wählen Sie oben über die Schaltfläche **Aufgaben**, **Kanban**, **Kalender** oder **Tabelle**. Karten werden per Drag-and-drop zwischen den Spalten verschoben.*
+*Die aktuelle Ansicht wählen Sie oben über die Schaltfläche **Aufgaben**, **Kanban**, **Kalender**, **Tabelle** oder **Zeitleiste**. Karten werden per Drag-and-drop zwischen den Spalten verschoben.*
 
 ## Tabelle
 
@@ -38,28 +38,43 @@ Typische Einsatzfälle:
 
 Der Kalender zeigt Aufgaben zeitbezogen. Aufgaben mit Start- oder Fälligkeitsdatum werden so planbar. Nutzen Sie ihn für Terminabstimmung, Fristen und tägliche Planung.
 
+## Zeitleiste
+
+Die Zeitleiste stellt Start- und Fälligkeitsdaten als Zeiträume dar. Ein einzelnes Datum erscheint als Meilenstein, Start- und Fälligkeitsdatum gemeinsam als Balken.
+
+![Zeitleistenansicht einer Liste mit Aufgaben, Meilenstein und Wochenraster](/images/community/zeitleiste.png)
+
+In der Werkzeugleiste können Sie:
+
+- zwischen Aufgaben und Bearbeitern gruppieren,
+- mit **Heute** zum aktuellen Datum springen,
+- zwischen Tages-, Wochen- und Monatsmaßstab wechseln,
+- neue Aufgaben direkt als geplant, als Meilenstein oder zunächst ohne Termin anlegen.
+
+Ziehen Sie einen Balken, um den gesamten Zeitraum zu verschieben. Über die Griffe an den Enden verändern Sie Start oder Ende. Bei Aufgaben ohne Termin stehen **Planen** und **Meilenstein** bereit. Das Drei-Punkte-Menü am Termin wandelt zwischen Zeitraum und Meilenstein um oder entfernt die Planung.
+
+Auf schmalen Bildschirmen bleibt die Aufgabeninformation sichtbar, während das Zeitraster horizontal gescrollt werden kann. Änderungen werden unmittelbar gespeichert; bei nur lesbaren Listen bleiben die Planungsaktionen deaktiviert.
+
 ## Dashboards
 
 ::: info Enterprise
 Dashboards sind ein Enterprise-Modul und benötigen die Capability `enterprise.dashboards`.
 :::
 
-Dashboards geben einen übergreifenden Blick auf Arbeit und Fortschritt. Sie können Widgets, KPI-Kacheln, Diagramme und Aufgabenlisten enthalten.
+Dashboards geben einen übergreifenden Blick auf Arbeit und Fortschritt. Neben Widgets, KPI-Kacheln und Diagrammen können dieselben gefilterten Aufgaben als Liste, Kalender, Zeitleiste oder Prioritäten-Matrix angezeigt werden.
 
 Dashboards eignen sich für:
 
 - Team- und Projektüberblick,
 - Statusberichte,
 - Auswertung nach Listen, Spalten, Labels oder Feldern,
+- Terminplanung über mehrere Listen hinweg,
+- Priorisierung nach Wichtigkeit und Dringlichkeit,
 - Export als PDF, CSV oder JSON.
 
 ## Mein Tag
 
-`Mein Tag` bündelt Aufgaben, die für den aktuellen Tag relevant sind. Die Ansicht hilft beim Fokussieren, ohne alle Listen einzeln zu öffnen.
-
-## Wichtig
-
-Der Bereich `Wichtig` sammelt Aufgaben mit Stern-Markierung über Listen hinweg.
+`Mein Tag` bündelt Ihre persönliche Auswahl für den aktuellen Tag. Die Ansicht hilft beim Fokussieren, ohne Aufgaben aus ihren Ursprungslisten zu verschieben. Vorschläge berücksichtigen insbesondere überfällige, heute fällige und wichtige Aufgaben. Weitere Einzelheiten finden Sie unter [Mein Tag](./daily-focus.md).
 
 ## Suche
 

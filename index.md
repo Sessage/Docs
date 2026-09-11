@@ -29,7 +29,7 @@ Sessage ist eine kollaborative Aufgaben- und Workflow-Anwendung mit zwei Servere
 
 Community ist kein eingeschränkter Testmodus: Die Edition kann eigenständig betrieben werden und enthält die alltägliche Arbeit mit Listen und Aufgaben. Enterprise ergänzt Funktionen für listenübergreifende Steuerung, Prozesseingänge, Automatisierung und zentrale Verzeichnisfreigaben.
 
-Die Dokumentation ist als VitePress-Projekt aufgebaut. Bilder, Screenshots und später eingefügte Videos können direkt in den Markdown-Seiten ergänzt werden. Eingefügte Bilder werden über die VS-Code-Konfiguration im Ordner `docs/img` abgelegt.
+Die Dokumentation ist als VitePress-Projekt aufgebaut. Bilder und Screenshots liegen unter `docs/public/images`, getrennt nach Community und Enterprise. Videos werden datenschutzfreundlich erst nach Einwilligung geladen.
 
 ## Empfohlene Lesereihenfolge
 

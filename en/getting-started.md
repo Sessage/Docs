@@ -30,11 +30,13 @@ Comments, attachments, subtasks and activity remain attached to the task, giving
 - **Kanban:** work organized by status or process stage.
 - **Table:** structured comparison of many fields.
 - **Calendar:** tasks organized by dates.
-- **Dashboard:** reporting and cross-list oversight in Enterprise.
+- **Timeline:** ranges and milestones at day, week or month scale.
+- **My Day:** a personal daily selection that keeps tasks in their source lists.
+- **Dashboard:** reporting, calendar, cross-list timeline and priority matrix in Enterprise.
 
 ![Kanban view in Sessage](/images/community/kanban.png)
 
-All views use the same tasks. Switching views does not copy or move data.
+All views use the same tasks. Switching views does not copy or move data. Shared-list changes are synchronized across list views, **Tasks**, **My Day**, dashboards and portfolio dashboards. An open editor protects unsaved local input while incoming changes are deferred safely.
 
 ## Invite the team
 
