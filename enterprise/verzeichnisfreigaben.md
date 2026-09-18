@@ -26,8 +26,8 @@ Bei Portfolios öffnen Sie zunächst das Portfolio-Dashboard und klicken dort au
 
 Die Suche verwendet die konfigurierten LDAP-/AD-Attribute und findet:
 
-- einzelne Verzeichnisbenutzer über Anzeigename, E-Mail, Identitäts- oder Anmeldeattribute,
-- Verzeichnisgruppen über Namen und Anzeigenamen.
+- einzelne Verzeichnisbenutzer über Anzeigename, Common Name (`cn`), `name`, E-Mail, Identitäts- oder Anmeldeattribute,
+- Verzeichnisgruppen über Common Name (`cn`), `name` und Anzeigenamen.
 
 Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Die Freigabe wird persistent gespeichert. Bereits durch eine erfolgreiche AD-Anmeldung verknüpfte Benutzer erhalten die Berechtigung unmittelbar; ansonsten wird sie bei der nächsten AD-Anmeldung des Benutzers wirksam. Eine bloße Übereinstimmung der E-Mail-Adresse eines lokalen Kontos erzeugt aus Sicherheitsgründen keine Verzeichnisidentität.
 
@@ -51,6 +51,7 @@ Die Verzeichnissuche verwendet das konfigurierte Dienstkonto:
 - `ActiveDirectory__BindUser`
 - `ActiveDirectory__BindPassword`
 - `ActiveDirectory__BaseDn`
+- optional `ActiveDirectory__GroupSearchBaseDn`, wenn Gruppen außerhalb der Benutzer-Suchbasis liegen
 
 Die grundlegende Verbindung wird unter [AD-Anbindung](../ad-anbindung.md) eingerichtet. Attribute, Objektklassen und Suchfilter entsprechen der ergänzenden Referenz unter [Docker-Konfiguration](../docker-konfiguration.md#active-directory-und-ldap). Dadurch nutzt auch der Enterprise-Verzeichnis-Tab bei OpenLDAP beispielsweise `uid` und `inetOrgPerson` statt der AD-spezifischen Felder.
 
