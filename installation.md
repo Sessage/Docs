@@ -19,6 +19,7 @@ Sessage besitzt zwei Serverprodukte mit demselben Community-Kern. Verwenden Sie 
 |---|---|---|
 | Community mit Docker | `sessage-community-<version>.zip` | `TodoSuite.Community.dll` |
 | Enterprise mit Docker | `sessage-enterprise-docker-<version>.zip` | `TodoSuite.Enterprise.Server.dll` |
+| Enterprise portabel | `sessage-enterprise-server-<version>.zip` | vollständiger Publish für IIS oder Linux mit .NET 10 |
 | Enterprise direkt auf Windows | `sessage-enterprise-windows-x64-<version>.zip` | selbstenthaltene EXE als Windows-Dienst |
 | Enterprise direkt auf Linux | `sessage-enterprise-linux-x64-<version>.zip` | selbstenthaltene Anwendung als systemd-Dienst |
 
