@@ -173,6 +173,9 @@ Die vollständige Einrichtung mit sicheren AD-, LDAPS-, StartTLS- und OpenLDAP-B
 | `AD_FALLBACK_EMAIL_DOMAIN` | leer | Erzeugt bei fehlendem E-Mail-Attribut `benutzer@domain`; für LDAP explizit erforderlich. |
 | `AD_TIMEOUT_SECONDS` | `15` | Netzwerk-Timeout einer LDAP-Anfrage. |
 | `AD_ENABLE_AUTO_FALLBACK` | `false` | Probiert weitere LDAP-/TLS-Transportarten. Kann auf unverschlüsseltes LDAP zurückfallen und sollte in Produktion deaktiviert bleiben. |
+| `AD_SEND_SHARING_NOTIFICATIONS` | `true` | Versendet bei Enterprise-Verzeichnisfreigaben einmalige Informationsmails; benötigt eine gültige SMTP-Konfiguration. |
+| `AD_GROUP_SYNC_INTERVAL_MINUTES` | `15` | Intervall für den automatischen Abgleich bestehender Gruppenfreigaben; `0` deaktiviert ihn. |
+| `AD_MAX_PROVISIONED_GROUP_MEMBERS` | `5000` | Maximale Zahl vollständig aufzulösender Benutzer pro Verzeichnisgruppe. Bei Überschreitung wird nicht teilweise freigegeben. |
 
 Verwenden Sie in Produktion LDAPS oder StartTLS und ein technisches Konto mit minimalen Leserechten. `AD_USE_SSL` und `AD_USE_STARTTLS` dürfen nicht gleichzeitig aktiv sein. Der Abschnitt heißt aus Gründen der Rückwärtskompatibilität weiterhin `ActiveDirectory`; alle neuen Optionen funktionieren ebenso mit generischem LDAP.
 

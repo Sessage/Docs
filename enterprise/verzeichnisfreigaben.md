@@ -29,13 +29,19 @@ Die Suche verwendet die konfigurierten LDAP-/AD-Attribute und findet:
 - einzelne Verzeichnisbenutzer über Anzeigename, Common Name (`cn`), `name`, E-Mail, Identitäts- oder Anmeldeattribute,
 - Verzeichnisgruppen über Common Name (`cn`), `name` und Anzeigenamen.
 
-Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Die Freigabe wird persistent gespeichert. Bereits durch eine erfolgreiche AD-Anmeldung verknüpfte Benutzer erhalten die Berechtigung unmittelbar; ansonsten wird sie bei der nächsten AD-Anmeldung des Benutzers wirksam. Eine bloße Übereinstimmung der E-Mail-Adresse eines lokalen Kontos erzeugt aus Sicherheitsgründen keine Verzeichnisidentität.
+Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Beim Speichern liest Sessage den Benutzer beziehungsweise alle Gruppenmitglieder erneut aus dem Verzeichnis und provisioniert sie anhand ihres stabilen Distinguished Name. Die Benutzer erhalten dadurch sofort Zugriff und können unmittelbar als Bearbeiter ausgewählt werden; eine vorherige Anmeldung oder Annahme ist nicht erforderlich.
+
+Vorprovisionierte Konten werden nicht allein anhand einer E-Mail-Adresse mit lokalen Konten verbunden. Erst eine erfolgreiche AD-/LDAP-Anmeldung bestätigt die persönliche Bindung. Besteht für dieselbe Ressource bereits ein nicht bestätigter lokaler Teilnehmer mit derselben E-Mail-Adresse, wird die Freigabe mit einem eindeutigen Konflikthinweis abgebrochen, anstatt möglicherweise dem falschen Konto Zugriff zu geben.
+
+Wenn SMTP konfiguriert und `ActiveDirectory__SendSharingNotifications=true` ist, erhält jeder neu berechtigte Benutzer einmalig eine Informationsmail mit einem Link zur Ressource. Versandfehler nehmen die bereits erteilte Berechtigung nicht zurück; sie werden persistent gespeichert und beim nächsten Gruppenabgleich erneut versucht. Ohne SMTP weist die Erfolgsmeldung ausdrücklich darauf hin, dass der Zugriff aktiv ist, aber keine E-Mail versendet wurde.
 
 ## Gruppenmitgliedschaften
 
-Bei einer Verzeichnisanmeldung speichert Sessage eine aktuelle Verzeichnisidentität. In AD werden verschachtelte Gruppen über die rekursive Matching Rule ermittelt. Generisches LDAP verwendet standardmäßig direkte `memberOf`-Mitgliedschaften. Für `groupOfNames`, `groupOfUniqueNames` oder `posixGroup` wird `ActiveDirectory__GroupMembershipSearchFilter` mit `{userDn}` beziehungsweise `{username}` konfiguriert.
+Beim Hinzufügen einer Gruppe löst Sessage deren Mitglieder sofort auf. Active Directory verwendet dafür die rekursive Matching Rule und berücksichtigt damit auch verschachtelte Gruppen. Generisches LDAP unterstützt `member`, `uniqueMember`, `memberUid` und benutzerseitiges `memberOf`; verschachtelte DN-Gruppen werden rekursiv verfolgt.
 
-Änderungen an Gruppenmitgliedschaften werden beim nächsten AD-Login des betroffenen Benutzers synchronisiert. Dabei werden hinzugekommene Rechte erteilt und nicht mehr zutreffende Rechte einschließlich abgeleiteter Portfolio-Listenrechte entfernt.
+Änderungen an Gruppenmitgliedschaften werden sowohl bei einer AD-Anmeldung als auch regelmäßig im Hintergrund synchronisiert. Das Standardintervall beträgt 15 Minuten. Hinzugekommene Rechte werden erteilt und nicht mehr zutreffende Rechte einschließlich abgeleiteter Portfolio-Listenrechte entfernt. Schlägt eine vollständige Verzeichnisabfrage fehl, bleiben die zuletzt bekannten Berechtigungen erhalten; ein vorübergehender LDAP-Ausfall führt damit nicht zu einem unbeabsichtigten Massenentzug.
+
+Für sehr große Gruppen begrenzt `ActiveDirectory__MaxProvisionedGroupMembers` die Verarbeitung standardmäßig auf 5.000 Benutzer. Wird die Grenze überschritten, wird die Freigabe nicht teilweise angelegt. `ActiveDirectory__GroupSynchronizationIntervalMinutes=0` deaktiviert den Hintergrundabgleich; der Abgleich bei Anmeldung bleibt erhalten.
 
 ## Zusammenspiel mehrerer Freigaben
 
