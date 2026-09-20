@@ -29,7 +29,7 @@ Die Suche verwendet die konfigurierten LDAP-/AD-Attribute und findet:
 - einzelne Verzeichnisbenutzer über Anzeigename, Common Name (`cn`), `name`, E-Mail, Identitäts- oder Anmeldeattribute,
 - Verzeichnisgruppen über Common Name (`cn`), `name` und Anzeigenamen.
 
-Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Beim Speichern liest Sessage den Benutzer beziehungsweise alle Gruppenmitglieder erneut aus dem Verzeichnis und provisioniert sie anhand ihres stabilen Distinguished Name. Die Benutzer erhalten dadurch sofort Zugriff und können unmittelbar als Bearbeiter ausgewählt werden; eine vorherige Anmeldung oder Annahme ist nicht erforderlich.
+Für jeden Treffer wird eine Rolle als Beobachter, Mitglied oder Admin gewählt. Beim Speichern liest Sessage den Benutzer beziehungsweise alle Gruppenmitglieder erneut aus dem Verzeichnis und provisioniert sie anhand ihres kanonisch normalisierten Distinguished Name. Die Benutzer erhalten dadurch sofort Zugriff und können unmittelbar als Bearbeiter ausgewählt werden; eine vorherige Anmeldung oder Annahme ist nicht erforderlich.
 
 Vorprovisionierte Konten werden nicht allein anhand einer E-Mail-Adresse mit lokalen Konten verbunden. Erst eine erfolgreiche AD-/LDAP-Anmeldung bestätigt die persönliche Bindung. Besteht für dieselbe Ressource bereits ein nicht bestätigter lokaler Teilnehmer mit derselben E-Mail-Adresse, wird die Freigabe mit einem eindeutigen Konflikthinweis abgebrochen, anstatt möglicherweise dem falschen Konto Zugriff zu geben.
 
@@ -62,3 +62,7 @@ Die Verzeichnissuche verwendet das konfigurierte Dienstkonto:
 Die grundlegende Verbindung wird unter [AD-Anbindung](../ad-anbindung.md) eingerichtet. Attribute, Objektklassen und Suchfilter entsprechen der ergänzenden Referenz unter [Docker-Konfiguration](../docker-konfiguration.md#active-directory-und-ldap). Dadurch nutzt auch der Enterprise-Verzeichnis-Tab bei OpenLDAP beispielsweise `uid` und `inetOrgPerson` statt der AD-spezifischen Felder.
 
 Das Dienstkonto benötigt Leserechte auf die Benutzer- und Gruppenobjekte im Suchbereich.
+
+## Upgrade und Datenintegrität
+
+Beim Upgrade werden bereits gespeicherte Benutzer-, Gruppen- und Freigabe-DNs automatisch kanonisch normalisiert. Eine Verzeichnisidentität darf aus Sicherheitsgründen nur genau einem lokalen Konto zugeordnet sein. Erkennt die Migration eine ältere, mehrdeutige Doppelzuordnung, bricht sie mit einem ausdrücklichen Diagnosehinweis ab, statt willkürlich Konten oder Berechtigungen zusammenzuführen. Die betroffenen Zuordnungen müssen dann vor dem erneuten Start fachlich geprüft und bereinigt werden.
