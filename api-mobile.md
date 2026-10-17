@@ -18,6 +18,31 @@ Im Produktionsbetrieb muss `Jwt__Key` gesetzt sein und mindestens 32 Bytes haben
 
 ## Mobile Funktionen
 
+### Excel-Import, Filter und Dateiexport
+
+Über **Listenoptionen (⋯) → Import** steht derselbe Excel-Import wie im Web bereit: XLSX-Datei auswählen, Tabellenblatt und Überschriftenzeile festlegen, Listenfelder beziehungsweise freigeschaltete benutzerdefinierte Felder zuordnen, Standardwerte setzen, Statuswerte übersetzen und vor dem Anlegen prüfen. Eine Anleitung mit Beispieldatei finden Sie unter [Excel-Import](./import-export-papierkorb.md).
+
+<img src="/images/community/excel-import-schmal.png" alt="Gemeinsamer Excel-Importdialog bei schmaler Bildschirmbreite mit Tabellenblatt Aufgaben und Überschriftenzeile 5" width="390" />
+
+*Responsive Browseraufnahme des gemeinsamen Importdialogs bei 390 Pixel Breite; keine Aufnahme eines nativen Geräts. Die App verwendet denselben Importdialog.*
+
+Der Excel-Import benötigt eine aktive Serververbindung und Schreibrechte für die Liste. Er wird nicht in die Offline-Warteschlange aufgenommen. App und Server müssen den Excel-Import unterstützen; bei einem älteren Server fordert die App zur Aktualisierung auf. Nach einem Wechsel von Profil, Server oder Benutzer öffnen und prüfen Sie den Import erneut.
+
+Die Listenfilter **Aufgaben** und **Meilensteine** arbeiten auf Mobile wie im Web und gelten für alle Listenansichten. Beide oder keine Auswahl zeigen beide Arten; eine einzelne Auswahl schränkt auf diese Art ein. Details stehen unter [Listen und Navigation](./listen-und-navigation.md).
+
+Die [Zeitleiste als Bild exportieren](./ansichten.md#zeitleiste-als-bild-exportieren) bietet dieselben Einstellungen einschließlich Quartals-/Jahresraster, Transparenz und Aufteilung auf mehrere Bilder. PNG und ZIP werden in der App an die native Teilen-/Speichern-Auswahl übergeben. Auch JSON- und CSV-Dateien können über diesen Weg weitergegeben werden. Im Portfolio-Dashboard finden Sie **Portfolio teilen** in der gemeinsamen oberen Aktionsleiste.
+
+Für API-Integrationen stehen die folgenden authentifizierten Endpunkte bereit:
+
+| Methode und Pfad | Zweck |
+|---|---|
+| `POST /api/mobile/lists/{listId}/excel-import/validate` | Aufbereitete Blattdaten und Zuordnungen prüfen; keine Aufgaben speichern |
+| `POST /api/mobile/lists/{listId}/excel-import` | Geprüfte Daten als Aufgaben importieren |
+
+Der Request enthält `sheet`, `date1904`, `mappings` und eine nicht leere `importId`; es handelt sich um strukturierte JSON-Daten, nicht um einen Multipart-Dateiupload. Verwenden Sie dieselbe `importId` bei Wiederholungen desselben unveränderten Importauftrags und eine neue ID bei einer geänderten Konfiguration. Der Server prüft beim Speichern erneut Berechtigungen, Listenfelder und Werte. Die vollständigen Schemas stehen in der [OpenAPI-Beschreibung](/openapi/sessage-v1.json).
+
+### Weitere unterstützte Bereiche
+
 Die API unterstützt mobile Szenarien für:
 
 - Listen,

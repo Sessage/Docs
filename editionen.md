@@ -19,6 +19,7 @@
 | **Listenfreigabe per Share-Link**<br><small>erstellt widerrufbare Einladungslinks mit einer festgelegten Rolle.</small> | ✓ | ✓ |
 | **Zuweisungen, Beobachter und Benachrichtigungen**<br><small>verteilt Verantwortlichkeiten und informiert Beteiligte über Änderungen.</small> | ✓ | ✓ |
 | **Suche, Export und Papierkorb**<br><small>findet Inhalte, exportiert Daten und ermöglicht die Wiederherstellung gelöschter Elemente.</small> | ✓ | ✓ |
+| **Excel-Import**<br><small>importiert XLSX-Aufgaben mit Tabellenblattwahl, Überschriftenzeile, Spalten- und Statuszuordnung sowie Standardwerten; benutzerdefinierte Zielfelder benötigen Enterprise Forms.</small> | ✓ | ✓ |
 | **Personal Access Tokens und API**<br><small>ermöglichen authentifizierte Integrationen und automatisierten Datenzugriff.</small> | ✓ | ✓ |
 | **Mobile App**<br><small>stellt die freigeschalteten Funktionen auf unterstützten Mobilgeräten bereit.</small> | ✓ | ✓ |
 | **Native Push-Nachrichten**<br><small>informieren auf Android, iOS und Windows; wahlweise anonym oder mit Benachrichtigungstext und direktem Sprung zur Aufgabe.</small> | – | ✓ |

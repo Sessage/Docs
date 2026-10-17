@@ -59,6 +59,8 @@ Ansicht sowie Listen- und Kanban-Sortierung werden pro Benutzer und Liste gespei
 
 Der Aufgabenfilter gilt einheitlich für Liste, Kanban, Tabelle, Kalender und Zeitleiste. Optionen innerhalb derselben Gruppe – beispielsweise mehrere Fälligkeitszeiträume, Labels oder **ohne Mitglieder** zusammen mit ausgewählten Mitgliedern – werden als Alternativen behandelt. Unterschiedliche Filtergruppen werden miteinander kombiniert. Nicht mehr vorhandene Labels oder Teilnehmer werden bei einer Aktualisierung aus dem Filter entfernt.
 
+Mit **Aufgaben** und **Meilensteine** können Sie auch nach Terminart filtern. Ein Meilenstein hat ein Fälligkeitsdatum und entweder kein Startdatum oder denselben Start- und Fälligkeitstag. Alle übrigen Einträge zählen in diesem Filter als Aufgaben, auch ohne Termin. Ist nur eine Option aktiv, wird nur diese Art angezeigt; beide oder keine Auswahl zeigen beide Arten. Die Optionen stehen ebenso in der mobilen App zur Verfügung.
+
 Die Mehrfachauswahl steht Benutzern mit Schreibrecht in Liste, Kanban und Tabelle zur Verfügung. Die Aktion **Verschieben** kann die gewählten Aufgaben entweder in eine andere Spalte derselben Liste oder in eine beschreibbare andere Liste verschieben. Für die Zielliste wird anschließend eine ihrer Spalten gewählt; deren Konfiguration bestimmt auch den Offen-/Erledigt-Status. Beim Filtern bleiben nur noch sichtbare Aufgaben ausgewählt. Ein Ansichtswechsel beendet die Auswahl; die bereits aktive Ansicht erneut anzuklicken verändert dagegen weder Auswahl noch geöffneten Task.
 
 ## Suche

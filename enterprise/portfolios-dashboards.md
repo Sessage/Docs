@@ -83,7 +83,9 @@ Persönliche Dashboards speichern Name, Listenauswahl, Gruppierung, Sortierung, 
 
 ### Zeitleiste
 
-Die Zeitleiste verbindet die Aufgaben aus allen ausgewählten beziehungsweise im Portfolio enthaltenen Listen. Zeiträume werden als Balken, einzelne Termine als Meilensteine dargestellt. Sie können nach Aufgaben oder Bearbeitern gruppieren, zu **Heute** springen und zwischen Tagen, Wochen und Monaten wechseln.
+Die Zeitleiste verbindet die Aufgaben aus allen ausgewählten beziehungsweise im Portfolio enthaltenen Listen. Zeiträume werden als Balken, einzelne Termine als Meilensteine dargestellt. Sie können nach Aufgaben oder Bearbeitern gruppieren, zu **Heute** springen und zwischen Tagen, Wochen, Monaten und Quartalen wechseln.
+
+Über **Als Bild exportieren** erstellen Sie eine PNG-Grafik oder mehrere Bilder als ZIP. Zeitraum, Raster bis zur Jahresansicht, Titel, Auflösung, Transparenz und Bearbeiterdarstellung lassen sich konfigurieren. Die mobile App öffnet für das Ergebnis die native Teilen-/Speichern-Auswahl. Eine bebilderte Anleitung steht unter [Zeitleiste als Bild exportieren](../ansichten.md#zeitleiste-als-bild-exportieren).
 
 ![Listenübergreifende Dashboard-Zeitleiste im Wochenmaßstab](/images/enterprise/dashboard-zeitleiste.png)
 

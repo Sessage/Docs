@@ -7,7 +7,9 @@ Sessage uses one shared task-management foundation. Enterprise extends that foun
 | Capability | Community | Enterprise |
 | --- | :---: | :---: |
 | Lists, tasks, comments and attachments | ✓ | ✓ |
-| List, Kanban, table and calendar views | ✓ | ✓ |
+| List, Kanban, table, calendar and timeline views | ✓ | ✓ |
+| XLSX import with worksheet/header selection, mappings and defaults | ✓ | ✓ |
+| Timeline PNG/ZIP export and native mobile file sharing | ✓ | ✓ |
 | Labels | ✓ | ✓ |
 | Email invitations and share links | ✓ | ✓ |
 | AD/LDAP sign-in | ✓ | ✓ |

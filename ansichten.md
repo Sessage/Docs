@@ -48,12 +48,24 @@ In der Werkzeugleiste können Sie:
 
 - zwischen Aufgaben und Bearbeitern gruppieren,
 - mit **Heute** zum aktuellen Datum springen,
-- zwischen Tages-, Wochen- und Monatsmaßstab wechseln,
+- zwischen Tages-, Wochen-, Monats- und Quartalsmaßstab wechseln,
 - neue Aufgaben direkt als geplant, als Meilenstein oder zunächst ohne Termin anlegen.
 
 Ziehen Sie einen Balken, um den gesamten Zeitraum zu verschieben. Über die Griffe an den Enden verändern Sie Start oder Ende. Bei Aufgaben ohne Termin stehen **Planen** und **Meilenstein** bereit. Das Drei-Punkte-Menü am Termin wandelt zwischen Zeitraum und Meilenstein um oder entfernt die Planung.
 
 Auf schmalen Bildschirmen bleibt die Aufgabeninformation sichtbar, während das Zeitraster horizontal gescrollt werden kann. Änderungen werden unmittelbar gespeichert; bei nur lesbaren Listen bleiben die Planungsaktionen deaktiviert.
+
+### Zeitleiste als Bild exportieren
+
+Öffnen Sie in der Zeitleiste **Als Bild exportieren**. Im Dialog legen Sie Zeitraum, Raster, Grafiktitel und Bildbreite fest. Zeitraumvorlagen stehen für den aktuellen Ausschnitt sowie Tage, Wochen, Monate, Quartale und Jahre bereit; das Exportraster reicht bis zur Jahresansicht.
+
+![Exportdialog der Zeitleiste mit Zeitraum, Auflösung, Darstellungsoptionen und PNG-Vorschau](/images/community/zeitleiste-export.png)
+
+Die Vorschau berücksichtigt unter anderem Bearbeiter, offene Aufgaben, Meilensteine, Datumsangaben, die Heute-Linie und Wochenenden. Optional können Sie nach Bearbeiter gruppieren oder einen transparenten Hintergrund wählen. Die Gruppierung setzt sichtbare Bearbeiter voraus.
+
+Bei großen Listen aktivieren Sie **In mehrere Bilder aufteilen** und bestimmen Aufgaben pro Bild, den gewünschten Bildbereich und das Vorschaubild. Ein ausgewähltes Bild wird als PNG, mehrere Bilder werden gemeinsam als ZIP exportiert. Die Bildbreite beträgt wahlweise 1600, 2400 oder 3200 Pixel.
+
+Im Browser wird die Datei heruntergeladen. In der mobilen App öffnet sich für PNG- und ZIP-Dateien die native Teilen-/Speichern-Auswahl des Betriebssystems. Dieselben Exportoptionen stehen auch in der Enterprise-Dashboard-Zeitleiste bereit.
 
 ## Dashboards
 

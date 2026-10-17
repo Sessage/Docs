@@ -62,6 +62,12 @@ Testprogramm abgelegt. Übernehmen Sie nur visuell geprüfte Bilder in die beide
 
 Nach Änderungen an Oberfläche oder Screenshots muss `npm run docs:build` ausgeführt werden. So werden fehlende Bildpfade und fehlerhaftes Markdown frühzeitig erkannt.
 
+Für **Excel-Import und Zeitleistenexport** besitzt der Browserlauf den Modus
+`DOC_SCREENSHOTS_ONLY=1`. Die Anleitung unter `tools/DailyFocusUiTests/README.md`
+beschreibt den Aufruf. Bilder entstehen zunächst unter `tools/DailyFocusUiTests/documentation/`;
+die XLSX-Beispieldatei unter `docs/public/examples/` wird dabei ebenfalls reproduzierbar erzeugt.
+Schmale Browseraufnahmen müssen in der Nutzerdokumentation als solche gekennzeichnet bleiben.
+
 ## YouTube-Videos einbetten
 
 Verwenden Sie in Markdown die globale Komponente `YouTubeVideo`. Sie lädt den Player im erweiterten Datenschutzmodus erst nach einer ausdrücklichen Einwilligung; vorher wird auch kein externes Vorschaubild abgerufen.

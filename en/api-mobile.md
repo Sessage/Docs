@@ -61,6 +61,14 @@ being cached as apparently successful offline creations.
 
 Invitation QR codes for both lists and Enterprise portfolios can be scanned and accepted directly in the app. The server validates the signed-in user and invitation token before granting access.
 
+## Excel import and timeline export
+
+The app includes the same Excel import dialog as the web interface. Open **List options (⋯) → Import**, choose an XLSX file and worksheet, set the header row, map columns and status values, and supply defaults for empty or unmapped cells. Header row 5 means tasks start on row 6. Custom fields require Enterprise Forms. Validation precedes confirmation; the import needs write access, an online connection and an updated server, and is not queued offline.
+
+Formula cells use their saved results; recalculate and save the workbook in Excel first. Macros, embedded objects and external links are rejected. See the [German import guide with screenshots and a sample workbook](/import-export-papierkorb).
+
+The **Tasks** and **Milestones** filters are also available in the app. Timeline exports support PNG, multiple images as ZIP, quarter/year export scales, transparency and configurable image sizes. On mobile, PNG, ZIP, JSON and CSV files open the operating system's native share/save picker. The portfolio dashboard includes **Share portfolio** in its shared header.
+
 ## Integration planning
 
 Before building an integration, define:

@@ -15,7 +15,7 @@ const germanSidebar: DefaultTheme.SidebarItem[] = [
     { text: 'Zusammenarbeit und Teilen', link: '/zusammenarbeit' },
     { text: 'Labels', link: '/labels-felder-formulare' },
     { text: 'Benachrichtigungen', link: '/benachrichtigungen' },
-    { text: 'Export und Papierkorb', link: '/import-export-papierkorb' },
+    { text: 'Import, Export und Papierkorb', link: '/import-export-papierkorb' },
     { text: 'Konto und Administration', link: '/konto-administration' },
     { text: 'Community mit Docker installieren', link: '/community/installation' },
     { text: 'Community direkt auf Linux', link: '/community/linux-direkt' }

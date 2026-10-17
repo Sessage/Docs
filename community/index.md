@@ -13,7 +13,7 @@ Die Enterprise Edition verwendet denselben Kern. Alle auf dieser Seite genannten
 - Labels
 - Listenfreigaben per E-Mail oder Share-Link mit Rollen
 - Zuweisungen, Beobachter, Benachrichtigungen und Erinnerungen
-- Suche, Export und Papierkorb
+- Suche, [Excel-Import](../import-export-papierkorb.md), Export und Papierkorb
 - Benutzerkonten, Personal Access Tokens und grundlegende Administration
 - lokale Anmeldung sowie Active Directory/LDAP-Anmeldung
 - Server-API und dieselbe mobile App wie bei Enterprise
