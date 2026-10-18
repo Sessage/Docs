@@ -21,6 +21,7 @@ jobs:
   build:
     name: VitePress bauen
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v6
@@ -51,6 +52,7 @@ jobs:
     name: GitHub Pages veröffentlichen
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
