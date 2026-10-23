@@ -275,6 +275,8 @@ Docker Compose setzt daraus `AutomationPlugins__Enabled`, `AutomationPlugins__Pa
 
 ## Installation und Fehlerdiagnose
 
+Das Teams-Beispiel verwendet einen eigenen HTTP-Client und prüft HTTPS. Es erbt nicht die DNS-, Redirect- und SSRF-Regeln des eingebauten Webhooks. Plugins laufen mit Serverrechten; Betreiber müssen Code und Netzwerkziele prüfen. Ein Timeout ist keine Sandbox und erzwingt keinen Prozessabbruch. Weitere Grenzen stehen unter [Betrieb und Wiederherstellung](/betrieb-und-wiederherstellung).
+
 1. Plugin in einen neuen Unterordner von `storage/plugins/` veröffentlichen.
 2. Eigentümer und Leserechte so setzen, dass nur Administratoren schreiben und der Container lesen kann.
 3. Enterprise-App neu starten.

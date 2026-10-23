@@ -1,5 +1,11 @@
 ﻿# API und mobile App
 
+## Versionsvorbedingungen und Wiederherstellung
+
+Listen und Aufgaben liefern `syncVersion` und gegebenenfalls `syncToken`. Bearbeitende Clients geben diese Vorbedingungen aus ihrem zuletzt gelesenen Stand unverändert zurück. Ein veralteter Stand erzeugt HTTP 409: neu laden, Felder vergleichen und bewusst zusammenführen. Vorbedingungen zu entfernen ist kein Konfliktlösungsverfahren. Bestehende Clients ohne Versionsangabe bleiben kompatibel, besitzen aber nicht denselben Überschreibschutz. Geteilte Dashboards verwenden ebenfalls `syncVersion`.
+
+Wiederholte Anlagen verwenden dieselbe Objekt-ID. Änderungen an Schritten, Mitgliedschaften, Labels und Zusatzfeldwerten erhöhen die Aufgabenrevision. Erinnerungs-Deliverymarker lösen dagegen keinen fachlichen Bearbeitungskonflikt aus. API-Validierungsfehler liefern JSON mit HTTP 400, fehlende Berechtigung HTTP 403 und Bearbeitungskonflikte HTTP 409. Details beschreibt [Betrieb und Wiederherstellung](/betrieb-und-wiederherstellung).
+
 ## Authentifizierung
 
 Die mobile API nutzt JWT Bearer Tokens, Identity-Cookies oder Personal Access Tokens. Für mobile Clients ist der Login über die mobile Authentifizierung vorgesehen. Treffen durch mehrere Authentifizierungsschemata erzeugte Identitäten in einer Anfrage zusammen, müssen sie auf exakt dasselbe Benutzerkonto verweisen; gemischte Identitäten werden abgewiesen.
@@ -137,6 +143,40 @@ Sessage kann mobile Clients anhand der App-Version prüfen. Der Server kann folg
 Wenn eine Version nicht mehr unterstützt wird, kann die API mit `426 Upgrade Required` antworten.
 
 Beim Serverstart werden Versionsreihenfolge und Syntax validiert. Eine konfigurierte Update-URL muss absolut sein und HTTPS verwenden. Die mobile App prüft die URL zusätzlich erneut, bevor sie diese an die Oberfläche weitergibt.
+
+## Formulare und Kontosicherheit in der App
+
+Die App zeigt veröffentlichte Formulare mit derselben Komponente wie die Weboberfläche an.
+Der Formulardesigner öffnet sie innerhalb der App; der QR-Scanner akzeptiert außerdem
+Formularlinks des aktiven Servers. Dieser Ablauf benötigt ein angemeldetes Profil und eine
+Serververbindung. Die neuen Formular- und Sicherheitsendpunkte akzeptieren ausschließlich
+JWT-Sitzungen, keine Browsercookies oder persönlichen Zugriffstoken. Öffentliche Formulare
+bleiben im Web auch ohne App-Profil erreichbar.
+
+Die Endpunkte unter `/api/mobile/forms` liefern ausschließlich die veröffentlichten Formularfelder
+und benötigten Auswahloptionen. Passwortgeschützte Formulare geben die Felddefinition erst nach
+erfolgreicher Prüfung über `POST public/{slug}/unlock` frei. Passwort-Hashes, Salts und übrige
+Listendaten werden nicht an den Client übertragen. `POST submit` verwendet Multipart-Daten
+mit dem JSON-Feld `payload` und optionalen `files`. Benutzerkennung und Clientadresse bestimmt
+der Server; der Client behält bei Wiederholungen denselben Übermittlungsschlüssel.
+
+Unter **Konto → Sicherheit** lassen sich die Authenticator-App einrichten, Zwei-Faktor-Anmeldung
+aktivieren oder deaktivieren und neue Wiederherstellungscodes erzeugen. Neue Codes werden
+einmalig angezeigt und ersetzen die vorherigen Codes. Der Login unterstützt auch
+Wiederherstellungscodes. Nach Sicherheitsänderungen kann eine erneute Anmeldung nötig sein.
+
+Vorhandene Passkeys werden in der App aufgelistet, umbenannt und entfernt. Die Registrierung
+eines neuen Passkeys öffnet die Kontoseite des aktiven Servers im Systembrowser, damit die
+Registrierung an dessen WebAuthn-Ursprung gebunden bleibt. Dort ist eine eigene Anmeldung nötig.
+Die API unter `/api/mobile/auth/security` verlangt das aktuelle Passwort beziehungsweise einen
+Authenticator-Code für Änderungen; Konten ohne lokales Passwort und ohne aktivierte 2FA benötigen
+eine interaktive Anmeldung innerhalb der letzten fünf Minuten. Eine automatische Token-Erneuerung
+behält diesen ursprünglichen Zeitpunkt bei und verlängert das Fünf-Minuten-Fenster nicht.
+Sicherheitsantworten werden nicht zwischengespeichert.
+
+Die Enterprise-Administration stellt Betriebs- und Pushdiagnosen über
+`GET /api/enterprise/administration/diagnostics` auch in der App bereit. Administrative
+Berechtigungen und Enterprise-Verfügbarkeit werden serverseitig geprüft.
 
 ## Swagger
 
